@@ -7,6 +7,7 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, "build"),
     entry: path.resolve(__dirname, "src", "index.tsx"),
     html: path.resolve(__dirname, "public", "index.html"),
+    src: path.resolve(__dirname, "src"),
   };
 
   const mode = env.mode || "development";
@@ -17,6 +18,6 @@ export default (env: BuildEnv) => {
     mode,
     paths,
     isDev,
-    port: PORT,
+    port: PORT
   });
 };
