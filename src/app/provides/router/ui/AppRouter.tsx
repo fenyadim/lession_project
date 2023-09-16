@@ -1,6 +1,6 @@
-import { FC, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
-import { routeConfig } from "shared/config/routeConfig/routeConfig";
+import { type FC, Suspense } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import { routeConfig } from 'shared/config/routeConfig/routeConfig'
 
 export const AppRouter: FC = () => {
   return (
@@ -15,5 +15,5 @@ export const AppRouter: FC = () => {
         ))}
       </Routes>
     </Suspense>
-  );
-};
+  )
+}

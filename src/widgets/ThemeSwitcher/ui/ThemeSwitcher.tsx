@@ -1,21 +1,21 @@
-import { FC } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
+import { type FC } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './ThemeSwitcher.module.scss'
-import { Theme, useTheme } from "app/provides/ThemeProvider";
-import { Button } from "shared/ui/Button/Button";
+import { Theme, useTheme } from 'app/provides/ThemeProvider'
+import { Button } from 'shared/ui/Button/Button'
 import LightSvg from 'shared/assets/icons/light-theme.svg'
 import DarkSvg from 'shared/assets/icons/dark-theme.svg'
 
 interface ThemeSwitcherProps {
-    className?: string
+  className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
-    const {className} = props
+  const { className } = props
 
-    const {theme, toggleTheme} = useTheme()
+  const { theme, toggleTheme } = useTheme()
 
-    return (
+  return (
         <Button
             theme='clear'
             className={classNames(styles.ThemeSwitcher, {}, [className])}
@@ -23,5 +23,5 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
         >
             {theme === Theme.DARK ? <LightSvg fill='#FCA836FF'/> : <DarkSvg fill='#d9d7d7'/>}
         </Button>
-    )
+  )
 }

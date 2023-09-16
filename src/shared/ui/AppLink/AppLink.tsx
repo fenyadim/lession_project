@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { Link, LinkProps } from "react-router-dom";
-import { classNames } from "shared/lib/classNames/classNames";
+import { type FC } from 'react'
+import { Link, type LinkProps } from 'react-router-dom'
+import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './AppLink.module.scss'
 
 export enum AppLinkTheme {
@@ -18,7 +18,8 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     className,
     children,
     theme = AppLinkTheme.PRIMARY,
-    ...otherProps} = props
+    ...otherProps
+  } = props
 
   return (
     <Link
