@@ -2,9 +2,7 @@ import { ButtonHTMLAttributes, FC } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import styles from './Button.module.scss'
 
-export enum ButtonTheme {
-    CLEAR = 'clear'
-}
+type ButtonTheme = 'clear'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string

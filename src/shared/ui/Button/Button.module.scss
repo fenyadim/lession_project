@@ -2,11 +2,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: var(--inverted-secondary-color);
 }
 
 .clear {
   padding: 0;
-  margin: 0;
   border: none;
   outline: none;
   background: none;
