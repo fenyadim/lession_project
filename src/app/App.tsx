@@ -7,9 +7,9 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
 const App: FC = () => {
-  const { theme } = useTheme()
+    const { theme } = useTheme()
 
-  return (
+    return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback=''>
                 <Navbar/>
@@ -19,7 +19,7 @@ const App: FC = () => {
                 </div>
             </Suspense>
         </div>
-  )
+    )
 }
 
 export default App

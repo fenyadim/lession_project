@@ -5,25 +5,25 @@ import styles from './Sidebar.module.scss'
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher'
 
 interface SidebarProps {
-  className?: string
+    className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = (props) => {
-  const { className } = props
+    const { className } = props
 
-  const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, setCollapsed] = useState(false)
 
-  const toggleCollapsed = (): void => {
-    setCollapsed(prev => !prev)
-  }
+    const toggleCollapsed = (): void => {
+        setCollapsed(prev => !prev)
+    }
 
-  return (
+    return (
         <div className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [className])}>
             <button onClick={toggleCollapsed}>Toggle</button>
             <div className={styles.switchers}>
                 <ThemeSwitcher/>
-                <LangSwitcher />
+                <LangSwitcher/>
             </div>
         </div>
-  )
+    )
 }

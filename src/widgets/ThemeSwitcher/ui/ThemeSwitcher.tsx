@@ -7,15 +7,15 @@ import LightSvg from 'shared/assets/icons/light-theme.svg'
 import DarkSvg from 'shared/assets/icons/dark-theme.svg'
 
 interface ThemeSwitcherProps {
-  className?: string
+    className?: string
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
-  const { className } = props
+    const { className } = props
 
-  const { theme, toggleTheme } = useTheme()
+    const { theme, toggleTheme } = useTheme()
 
-  return (
+    return (
         <Button
             theme='clear'
             className={classNames(styles.ThemeSwitcher, {}, [className])}
@@ -23,5 +23,5 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
         >
             {theme === Theme.DARK ? <LightSvg fill='#FCA836FF'/> : <DarkSvg fill='#d9d7d7'/>}
         </Button>
-  )
+    )
 }

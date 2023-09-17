@@ -25,6 +25,10 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
+    "@typescript-eslint/indent": [2, 4],
+    "react/jsx-indent": [2, 4],
+    "react/jsx-indent-props": [2, 4],
+    'react/jsx-filename-extension': [2, {extensions: ['.js', '.jsx', '.tsx']}],
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",

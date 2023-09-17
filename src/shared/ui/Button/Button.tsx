@@ -5,19 +5,19 @@ import styles from './Button.module.scss'
 type ButtonTheme = 'clear'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  theme?: ButtonTheme
+    className?: string
+    theme?: ButtonTheme
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { className, children, theme, ...otherProps } = props
+    const { className, children, theme, ...otherProps } = props
 
-  return (
+    return (
         <button
             className={classNames(styles.Button, {}, [className, styles[theme]])}
             {...otherProps}
         >
             {children}
         </button>
-  )
+    )
 }
