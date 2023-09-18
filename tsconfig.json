@@ -16,6 +16,12 @@
       ]
     }
   },
+  "files": [
+    "./src/app/types/global.d.ts"
+  ],
+  "include": [
+    "./config/jest/setupTests.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"

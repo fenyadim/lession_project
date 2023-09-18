@@ -1,8 +1,8 @@
-declare module '*.scss' {
-  type IClassNames = Record<string, string>
+declare module '*.module.scss' {
+    type IClassNames = Record<string, string>
 
-  const classNames: IClassNames
-  export = classNames
+    const classNames: IClassNames
+    export = classNames
 }
 
 declare module '*.png';
