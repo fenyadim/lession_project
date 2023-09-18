@@ -1,4 +1,4 @@
-import { type FC, Suspense } from 'react'
+import { type FC, Suspense, useEffect } from 'react'
 import './styles/index.scss'
 import { useTheme } from 'app/provides/ThemeProvider'
 import { AppRouter } from 'app/provides/router'
