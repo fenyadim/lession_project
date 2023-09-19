@@ -1,8 +1,8 @@
 import type webpack from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { type BuildOption } from './types/config'
+import { buildCssLoaders } from "./loaders/buildCssLoaders";
 
-export function buildLoaders (option: BuildOption): webpack.RuleSetRule[] {
+export function buildLoaders(option: BuildOption): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
@@ -41,23 +41,7 @@ export function buildLoaders (option: BuildOption): webpack.RuleSetRule[] {
         exclude: /node_modules/
     }
 
-    const cssLoader = {
-        test: /\.s[ac]ss$/i,
-        use: [
-            option.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: {
-                        auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-                        localIdentName: option.isDev ? '[name]__[local]--[hash:base64:8]' : '[hash:base64:8]'
-                    }
-                }
-            },
-            'sass-loader'
-        ]
-
-    }
+    const cssLoader = buildCssLoaders(option.isDev)
 
     return [svgLoader, fileLoader, babelLoader, tsLoader, cssLoader]
 }

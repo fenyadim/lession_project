@@ -16,15 +16,14 @@
       ]
     }
   },
-  "files": [
-    "./src/app/types/global.d.ts"
-  ],
-  "include": [
-    "./config/jest/setupTests.ts"
-  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": [
+    "./config/jest/setupTests.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
+  ]
 }

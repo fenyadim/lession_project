@@ -1,4 +1,4 @@
-import { type FC, Suspense, useEffect } from 'react'
+import { type FC, Suspense } from 'react'
 import './styles/index.scss'
 import { useTheme } from 'app/provides/ThemeProvider'
 import { AppRouter } from 'app/provides/router'
@@ -7,7 +7,7 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
 const App: FC = () => {
-    const {theme} = useTheme()
+    const { theme } = useTheme()
 
     return (
         <div className={classNames('app', {}, [theme])}>

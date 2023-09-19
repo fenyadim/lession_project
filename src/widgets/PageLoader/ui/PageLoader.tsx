@@ -1,6 +1,6 @@
-import { FC } from "react";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Loader } from "shared/ui/Loader/Loader";
+import { type FC } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
+import { Loader } from 'shared/ui/Loader/Loader'
 import styles from './PageLoader.module.scss'
 
 interface PageLoaderProps {
@@ -8,7 +8,7 @@ interface PageLoaderProps {
 }
 
 export const PageLoader: FC<PageLoaderProps> = (props) => {
-    const {className} = props
+    const { className } = props
 
     return (
         <div className={classNames(styles.PageLoader, {}, [className])}>

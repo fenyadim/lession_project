@@ -1,8 +1,8 @@
-import { FC, useEffect, useState } from "react";
-import { Button } from "shared/ui/Button/Button";
+import { type FC, useEffect, useState } from 'react'
+import { Button } from 'shared/ui/Button/Button'
 
-//Компонент для тестирования
-export const BugButton: FC = (props) => {
+// Компонент для тестирования
+export const BugButton: FC = () => {
     const [error, setError] = useState(false)
 
     const getError = () => {
@@ -11,7 +11,7 @@ export const BugButton: FC = (props) => {
 
     useEffect(() => {
         if (error) throw new Error()
-    }, [error]);
+    }, [error])
 
     return (
         <Button onClick={getError}>

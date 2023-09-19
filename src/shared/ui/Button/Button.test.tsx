@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { Button } from "./Button";
+import { render, screen } from '@testing-library/react'
+import { Button } from './Button'
 
 describe('Button', function () {
     test('have text in button component', () => {
@@ -11,4 +11,4 @@ describe('Button', function () {
         expect(screen.getByText('Test')).toHaveClass('clear')
         screen.debug()
     })
-});
+})

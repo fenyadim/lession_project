@@ -1,6 +1,6 @@
-import { fireEvent, screen } from "@testing-library/react";
-import { Sidebar } from "./Sidebar";
-import { renderWithTranslation } from "shared/lib/test/renderWithTranslation/renderWithTranslation";
+import { fireEvent, screen } from '@testing-library/react'
+import { Sidebar } from './Sidebar'
+import { renderWithTranslation } from 'shared/lib/test/renderWithTranslation/renderWithTranslation'
 
 describe('Sidebar', function () {
     test('sidebar render in page', () => {
@@ -14,4 +14,4 @@ describe('Sidebar', function () {
         fireEvent.click(toggleBtn)
         expect(screen.getByTestId('sidebar')).toHaveClass('collapsed')
     })
-});
+})
