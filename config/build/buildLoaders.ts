@@ -22,16 +22,7 @@ export function buildLoaders (option: BuildOption): webpack.RuleSetRule[] {
         test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         use: {
-            loader: 'babel-loader',
-            options: {
-                plugins: [
-                    ['i18next-extract', {
-                        locales: ['ru', 'en'],
-                        keyAsDefaultValue: true,
-                        outputPath: 'public/locales/{{locale}}/{{ns}}.json'
-                    }]
-                ]
-            }
+            loader: 'babel-loader'
         }
     }
 

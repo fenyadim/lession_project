@@ -36,15 +36,72 @@ ClearDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Outline: Story = {
     args: {
-        children: 'Outline',
+        children: 'Text',
         theme: 'outline'
+    }
+}
+
+export const OutlineSizeL: Story = {
+    args: {
+        children: 'Text',
+        theme: 'outline',
+        size: 'l'
+    }
+}
+
+export const OutlineSizeXL: Story = {
+    args: {
+        children: 'Text',
+        theme: 'outline',
+        size: 'xl'
     }
 }
 
 export const OutlineDark: Story = {
     args: {
-        children: 'Outline',
+        children: 'Text',
         theme: 'outline'
     }
 }
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Background: Story = {
+    args: {
+        children: 'Text',
+        theme: 'background'
+    }
+}
+
+export const BackgroundInverted: Story = {
+    args: {
+        children: 'Text',
+        theme: 'backgroundInverted'
+    }
+}
+
+export const Square_M: Story = {
+    args: {
+        children: '>',
+        theme: 'backgroundInverted',
+        square: true,
+        size: 'm'
+    }
+}
+
+export const Square_L: Story = {
+    args: {
+        children: '>',
+        theme: 'backgroundInverted',
+        square: true,
+        size: 'l'
+    }
+}
+
+export const Square_XL: Story = {
+    args: {
+        children: '>',
+        theme: 'backgroundInverted',
+        square: true,
+        size: 'xl'
+    }
+}
