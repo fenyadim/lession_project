@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/provides/ThemeProvider";
-import { Navbar } from "widgets/Navbar";
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+import { Theme } from 'app/provides/ThemeProvider'
+import { Navbar } from 'widgets/Navbar'
 
 const meta: Meta<typeof Navbar> = {
     title: 'widgets/Navbar',
-    component: Navbar,
-};
+    component: Navbar
+}
 
-export default meta;
+export default meta
 
 type Story = StoryObj<typeof Navbar>
 

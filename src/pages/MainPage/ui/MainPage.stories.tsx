@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/provides/ThemeProvider";
-import MainPage from "./MainPage";
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+import { Theme } from 'app/provides/ThemeProvider'
+import MainPage from './MainPage'
 
 const meta: Meta<typeof MainPage> = {
     title: 'pages/MainPage',
-    component: MainPage,
-};
+    component: MainPage
+}
 
-export default meta;
+export default meta
 
 type Story = StoryObj<typeof MainPage>
 

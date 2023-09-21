@@ -1,5 +1,3 @@
-import React from "react";
-
-const jestEmptyComponent = () => <div/>
+const jestEmptyComponent = (): React.ReactNode => <div />
 
 export default jestEmptyComponent

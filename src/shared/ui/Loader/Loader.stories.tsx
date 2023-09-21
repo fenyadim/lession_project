@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/provides/ThemeProvider";
-import { Loader } from "./Loader";
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+import { Theme } from 'app/provides/ThemeProvider'
+import { Loader } from './Loader'
 
 const meta: Meta<typeof Loader> = {
     title: 'shared/Loader',
-    component: Loader,
-};
+    component: Loader
+}
 
-export default meta;
+export default meta
 
 type Story = StoryObj<typeof Loader>
 

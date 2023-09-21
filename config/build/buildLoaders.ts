@@ -1,8 +1,8 @@
 import type webpack from 'webpack'
 import { type BuildOption } from './types/config'
-import { buildCssLoaders } from "./loaders/buildCssLoaders";
+import { buildCssLoaders } from './loaders/buildCssLoaders'
 
-export function buildLoaders(option: BuildOption): webpack.RuleSetRule[] {
+export function buildLoaders (option: BuildOption): webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,

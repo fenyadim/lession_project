@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from './Button';
-import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator";
-import { Theme } from "app/provides/ThemeProvider";
+import { Button } from './Button'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+import { Theme } from 'app/provides/ThemeProvider'
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
-    component: Button,
-};
+    component: Button
+}
 
-export default meta;
+export default meta
 
 type Story = StoryObj<typeof Button>
 
