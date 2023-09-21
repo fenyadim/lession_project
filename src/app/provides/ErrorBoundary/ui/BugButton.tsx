@@ -5,7 +5,7 @@ import { Button } from 'shared/ui/Button/Button'
 export const BugButton: FC = () => {
     const [error, setError] = useState(false)
 
-    const getError = () => {
+    const getError = (): void => {
         setError(true)
     }
 
