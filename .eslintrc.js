@@ -26,7 +26,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react'],
+    plugins: ['react', '@typescript-eslint', 'eslint-plugin-react-hooks'],
     rules: {
         '@typescript-eslint/indent': [2, 4, { 'ignoredNodes': ['JSXElement'] }],
         'react/jsx-indent': [2, 4],
@@ -49,6 +49,8 @@ module.exports = {
                 },
             },
         ],
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
     },
     globals: {
         __IS_DEV__: true,

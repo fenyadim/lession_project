@@ -26,6 +26,13 @@ export const Clear: Story = {
     }
 }
 
+export const ClearInverted: Story = {
+    args: {
+        children: 'Clear',
+        theme: 'clearInverted'
+    }
+}
+
 export const ClearDark: Story = {
     args: {
         children: 'Clear',
@@ -33,6 +40,14 @@ export const ClearDark: Story = {
     }
 }
 ClearDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const ClearInvertedDark: Story = {
+    args: {
+        children: 'Clear',
+        theme: 'clearInverted'
+    }
+}
+ClearInvertedDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Outline: Story = {
     args: {
