@@ -3,5 +3,5 @@ node_modules
 .idea
 package-lock.json
 /storybook-static
-.loki/report.htm
-.loki/report.json
+/.loki/report.htm
+/.loki/report.json
