@@ -1,5 +1,4 @@
 import { type FC, Suspense } from 'react'
-import { useTheme } from 'app/provides/ThemeProvider'
 import { AppRouter } from 'app/provides/router'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
