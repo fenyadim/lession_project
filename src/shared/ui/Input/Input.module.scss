@@ -1,0 +1,55 @@
+.Input {
+    background: var(--primary-color);
+    border-radius: 7px;
+    border: none;
+    padding: 5px 15px;
+    transition: background 0.1s;
+    box-sizing: border-box;
+    outline: 1px var(--inverted-bg-color) solid;
+    color: var(--font-color);
+
+    &:focus {
+        background: var(--primary-color);
+    }
+}
+
+.input_wrapper {
+    position: relative;
+    color: var(--font-color);
+}
+
+.label {
+    position: absolute;
+    cursor: text;
+    transition: all 0.1s;
+    top: 5px;
+    left: 15px;
+    background: transparent;
+}
+
+.focus {
+    animation: onfocus 0.1s;
+    top: -10px;
+    font: var(--font-s);
+    background: linear-gradient(to bottom, transparent 50%, var(--primary-color) 50%);
+}
+
+@keyframes onfocus {
+    0% {
+        top: 5px;
+        left: 15px;
+        background: transparent;
+        font: var(--font-m);
+    }
+
+    50% {
+        background: transparent;
+    }
+
+    100% {
+        top: -10px;
+        left: 15px;
+        background: linear-gradient(to bottom, transparent 50%, var(--primary-color) 50%);
+        font: var(--font-s);
+    }
+}

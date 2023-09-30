@@ -3,24 +3,32 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
 
-interface ModalProps {
+export interface ModalProps {
     className?: string
     isOpen?: boolean
     onClose?: () => void
+    lazy?: boolean
 }
 
 const ANIMATION_DELAY = 100
 
 export const Modal: FC<ModalProps> = (props) => {
-    const { className, children, isOpen, onClose } = props
+    const { className, children, isOpen, onClose, lazy } = props
 
     const [isClosing, setIsClosing] = useState(false)
+    const [isMounted, setIsMounted] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
     const mods: Record<string, boolean> = {
         [styles.opened]: isOpen,
         [styles.isClosing]: isClosing
     }
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const closeHandler = useCallback((): void => {
         if (onClose) {
@@ -51,6 +59,10 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const onContentClick = (e: MouseEvent): void => {
         e.stopPropagation()
+    }
+
+    if (lazy && !isMounted) {
+        return null
     }
 
     return (
