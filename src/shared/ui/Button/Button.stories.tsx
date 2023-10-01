@@ -94,6 +94,14 @@ export const BackgroundInverted: Story = {
     }
 }
 
+export const Disabled: Story = {
+    args: {
+        children: 'Text',
+        theme: 'outline',
+        disabled: true
+    }
+}
+
 export const Square_M: Story = {
     args: {
         children: '>',

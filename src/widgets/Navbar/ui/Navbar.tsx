@@ -4,6 +4,8 @@ import styles from './Navbar.module.scss'
 import { Button } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserAuthData, userActions } from 'entities/User'
 
 interface NavbarProps {
     className?: string
@@ -14,6 +16,8 @@ export const Navbar: FC<NavbarProps> = (props) => {
 
     const { t } = useTranslation()
     const [isAuthModal, setIsAuthModal] = useState(false)
+    const authData = useSelector(getUserAuthData)
+    const dispatch = useDispatch()
 
     const onCloseModal = useCallback((): void => {
         setIsAuthModal(false)
@@ -22,6 +26,24 @@ export const Navbar: FC<NavbarProps> = (props) => {
     const onShowModal = useCallback((): void => {
         setIsAuthModal(true)
     }, [])
+
+    const onLogout = useCallback((): void => {
+        dispatch(userActions.logout())
+    }, [dispatch])
+
+    if (authData) {
+        return (
+            <div className={ classNames(styles.Navbar, {}, [className]) }>
+                <Button
+                    theme="clear"
+                    className={ styles.links }
+                    onClick={ onLogout }
+                >
+                    { t('Выйти') }
+                </Button>
+            </div>
+        )
+    }
 
     return (
         <div className={ classNames(styles.Navbar, {}, [className]) }>
