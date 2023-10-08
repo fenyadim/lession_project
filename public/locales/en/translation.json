@@ -1,7 +1,7 @@
 {
-  "Главная": "Main page",
-  "Главная страница": "Main page",
-  "О сайте": "About page",
+  "Главная": "Main",
+  "О сайте": "About",
+  "Профиль": "Profile",
   "Обновить страницу": "Refresh the page",
   "Произошла ошибка": "An error has occurred",
   "Страница не найдена": "Page not found",
@@ -11,5 +11,7 @@
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Форма авторизации": "Authorization form",
-  "Выйти": "Sign out"
+  "Выйти": "Sign out",
+  "Главная страница": "Main page",
+  "Страница профиля": "Profile page"
 }

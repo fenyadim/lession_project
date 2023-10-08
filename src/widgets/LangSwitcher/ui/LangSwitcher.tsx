@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button } from 'shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
@@ -8,13 +8,13 @@ interface LangSwitcherProps {
     isShort?: boolean
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
+export const LangSwitcher = memo((props: LangSwitcherProps) => {
     const { className, isShort } = props
 
     const { t, i18n } = useTranslation()
 
-    const toggleLang = async () => {
-        i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+    const toggleLang = async (): Promise<void> => {
+        await i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
     }
 
     return (
@@ -26,4 +26,6 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
             { t(isShort ? 'Короткий язык' : 'Язык') }
         </Button>
     )
-}
+})
+
+LangSwitcher.displayName = 'LangSwitcher'
