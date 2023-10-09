@@ -1,5 +1,5 @@
 import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
 
 type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted'
@@ -19,13 +19,14 @@ export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        theme, square,
+        theme = 'outline',
+        square,
         size = 'm',
         disabled,
         ...otherProps
     } = props
 
-    const mods: Record<string, boolean> = {
+    const mods: ModsType = {
         [styles.square]: square,
         [styles.disabled]: disabled
     }

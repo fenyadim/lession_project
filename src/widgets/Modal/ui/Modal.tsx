@@ -1,12 +1,12 @@
-import { type FC, type MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { type FC, type MouseEvent, type MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
 
 export interface ModalProps {
     className?: string
     isOpen?: boolean
-    onClose?: () => void
+    onClose: () => void
     lazy?: boolean
 }
 
@@ -17,9 +17,9 @@ export const Modal: FC<ModalProps> = (props) => {
 
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>()
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
-    const mods: Record<string, boolean> = {
+    const mods: ModsType = {
         [styles.opened]: isOpen,
         [styles.isClosing]: isClosing
     }

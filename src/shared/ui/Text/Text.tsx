@@ -10,7 +10,7 @@ interface TextProps {
 }
 
 export const Text = memo((props: TextProps) => {
-    const { className, text, title, theme } = props
+    const { className, text, title, theme = 'primary' } = props
 
     return (
         <div className={ classNames(styles.Text, {},

@@ -41,6 +41,7 @@ module.exports = {
         'react/no-deprecated': 'off',
         '@typescript-eslint/naming-convention': 'warn',
         '@typescript-eslint/explicit-function-return-type': 'warn',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-misused-promises': [
             2,
             {

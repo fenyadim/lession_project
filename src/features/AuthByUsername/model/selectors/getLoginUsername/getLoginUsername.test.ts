@@ -1,4 +1,3 @@
-import { type DeepPartial } from 'redux'
 import { type StateSchema } from 'app/provides/StoreProvider'
 import { getLoginPassword } from '../getLoginPassword/getLoginPassword'
 
