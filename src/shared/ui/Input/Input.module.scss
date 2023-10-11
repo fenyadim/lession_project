@@ -34,6 +34,20 @@
     background: linear-gradient(to bottom, transparent 50%, var(--primary-color) 50%);
 }
 
+.readonly {
+    .Input {
+        background: none;
+
+        &:focus {
+            background: none;
+        }
+    }
+
+    .focus {
+        background: linear-gradient(to bottom, transparent 50%, var(--bg-color) 50%);
+    }
+}
+
 @keyframes onfocus {
     0% {
         top: 5px;

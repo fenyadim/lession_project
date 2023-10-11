@@ -2,7 +2,7 @@ import { type ButtonHTMLAttributes, memo, type ReactNode } from 'react'
 import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
 
-type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'background' | 'backgroundInverted'
+type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'
 
 type ButtonSize = 'm' | 'l' | 'xl'
 

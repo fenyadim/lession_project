@@ -44,3 +44,21 @@ export const TextDark: Story = {
 }
 
 TextDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const Readonly: Story = {
+    args: {
+        value: 'Text',
+        placeholder: 'Placeholder',
+        readonly: true
+    }
+}
+
+export const ReadonlyDark: Story = {
+    args: {
+        value: '',
+        placeholder: 'Placeholder',
+        readonly: true
+    }
+}
+
+ReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)]

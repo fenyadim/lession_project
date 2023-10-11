@@ -37,7 +37,8 @@ export const Sidebar = memo((props: SidebarProps) => {
                     <SidebarItem
                         key={ item.path }
                         item={ item }
-                        collapsed={ collapsed }/>
+                        collapsed={ collapsed }
+                    />
                 )) }
             </div>
             <div className={ styles.switchers }>
