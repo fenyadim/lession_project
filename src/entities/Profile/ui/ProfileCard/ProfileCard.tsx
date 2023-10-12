@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { Input } from 'shared/ui/Input/Input'
 import { Loader } from 'shared/ui/Loader/Loader'
-import { type Profile } from '../../model/types/profile'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { CurrencySelect } from 'entities/Currency'
 import { CountrySelect } from 'entities/Country'
+import { type Profile } from 'features/EditableProfileCard'
 
 interface ProfileCardProps {
     className?: string

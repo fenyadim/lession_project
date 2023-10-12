@@ -3,10 +3,10 @@ import { type UserSchema } from 'entities/User'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type CombinedState, type EnhancedStore, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type AnyAction, type Reducer } from 'redux'
-import { type ProfileSchema } from 'entities/Profile'
 import { type AxiosInstance } from 'axios'
 import { type To } from 'history'
 import { type NavigateOptions } from 'react-router'
+import { type ProfileSchema } from 'features/EditableProfileCard'
 
 export interface StateSchema {
     counter: CounterSchema

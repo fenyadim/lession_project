@@ -5,8 +5,8 @@ import { Text } from 'shared/ui/Text/Text'
 import { Button } from 'shared/ui/Button/Button'
 import styles from './ProfilePageHeader.module.scss'
 import { useSelector } from 'react-redux'
-import { getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { getProfileReadonly, profileActions, updateProfileData } from 'features/EditableProfileCard'
 
 interface ProfilePageHeaderProps {
     className?: string

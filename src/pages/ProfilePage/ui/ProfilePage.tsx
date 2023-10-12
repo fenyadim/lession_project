@@ -1,11 +1,12 @@
 import { memo, useCallback, useEffect } from 'react'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, type Profile, profileActions, ProfileCard, profileReducer, ValidateProfileError } from 'entities/Profile'
 import { useSelector } from 'react-redux'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, type Profile, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
+import { ProfileCard } from 'entities/Profile'
 
 interface ProfilePageProps {
     className?: string
