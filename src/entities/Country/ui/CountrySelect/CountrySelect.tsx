@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 interface CountrySelectProps {
     className?: string
     value?: Country
-    onChange?: (value: Country) => void
+    onChange?: (value: Country, name: string) => void
     readonly?: boolean
 }
 
@@ -23,12 +23,13 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 
     const { t } = useTranslation('profile')
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country)
+    const onChangeHandler = useCallback((value: string, name?: string) => {
+        onChange?.(value as Country, name as string)
     }, [onChange])
 
     return (
         <Select
+            name="country"
             className={ className }
             label={ t('Укажите страну') }
             options={ options }

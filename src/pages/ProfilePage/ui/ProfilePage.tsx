@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, type Profile, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
 import { ProfileCard } from 'entities/Profile'
 
 interface ProfilePageProps {
@@ -39,19 +39,10 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     }, [dispatch])
 
     const onChangeProfile = useCallback(
-        (field: keyof Profile, value: string) => {
-            if (field === 'age') {
-                const numberValue = value.match(/^\d+$/)?.input
-                if (numberValue !== undefined) {
-                    dispatch(profileActions.updateProfile({
-                        age: Number(value)
-                    }))
-                }
-            } else {
-                dispatch(profileActions.updateProfile({
-                    [field]: value
-                }))
-            }
+        (name: string, value: string | number) => {
+            dispatch(profileActions.updateProfile({
+                [name]: value
+            }))
         }, [dispatch])
 
     return (

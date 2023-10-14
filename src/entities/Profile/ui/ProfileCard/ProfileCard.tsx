@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { useCallback, type FC } from 'react'
 import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import styles from './ProfileCard.module.scss'
 import { useTranslation } from 'react-i18next'
@@ -16,7 +16,7 @@ interface ProfileCardProps {
     isLoading?: boolean
     error?: string
     readonly?: boolean
-    onChangeProfile: (field: keyof Profile, value: string) => void
+    onChangeProfile: (name: string, value: string | number) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -30,6 +30,17 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     } = props
 
     const { t } = useTranslation('profile')
+
+    const onChangeHandler = useCallback((value: string, name?: string) => {
+        if (name === 'age') {
+            const numberValue = value.match(/^\d+$/)?.input
+            if (numberValue !== undefined) {
+                onChangeProfile(name as keyof Profile, Number(value))
+            }
+        } else {
+            onChangeProfile(name as keyof Profile, value)
+        }
+    }, [onChangeProfile])
 
     if (isLoading) {
         return (
@@ -68,73 +79,63 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                     />
                 </div> }
                 <Input
+                    name="first"
                     value={ data?.first }
                     placeholder={ t('Ваше имя') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('first', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <Input
+                    name="lastname"
                     value={ data?.lastname }
                     placeholder={ t('Ваша фамилия') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('lastname', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <Input
+                    name="age"
                     value={ data?.age }
                     placeholder={ t('Ваш возраст') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('age', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <Input
+                    name="city"
                     value={ data?.city }
                     placeholder={ t('Ваш город') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('city', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <Input
+                    name="username"
                     value={ data?.username }
                     placeholder={ t('Имя пользователя') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('username', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <Input
+                    name="avatar"
                     value={ data?.avatar }
                     placeholder={ t('Аватар') }
                     className={ styles.input }
-                    onChange={ (value) => {
-                        onChangeProfile('avatar', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <CurrencySelect
                     className={ styles.input }
                     value={ data?.currency }
-                    onChange={ (value) => {
-                        onChangeProfile('currency', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
                 <CountrySelect
                     className={ styles.input }
                     value={ data?.country }
-                    onChange={ (value) => {
-                        onChangeProfile('country', value)
-                    } }
+                    onChange={ onChangeHandler }
                     readonly={ readonly }
                 />
             </div>

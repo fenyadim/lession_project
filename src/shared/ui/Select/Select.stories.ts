@@ -11,7 +11,7 @@ export default meta
 
 type Story = StoryObj<typeof Select>
 
-export const AvatarBig: Story = {
+export const Default: Story = {
     args: {
         label: 'Укажите значение',
         options: [

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 interface CurrencySelectProps {
     className?: string
     value?: Currency
-    onChange?: (value: Currency) => void
+    onChange?: (value: Currency, name?: string) => void
     readonly?: boolean
 }
 
@@ -21,12 +21,13 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     const { t } = useTranslation('profile')
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Currency)
+    const onChangeHandler = useCallback((value: string, name?: string) => {
+        onChange?.(value as Currency, name)
     }, [onChange])
 
     return (
         <Select
+            name="currency"
             className={ className }
             label={ t('Укажите валюту') }
             options={ options }
