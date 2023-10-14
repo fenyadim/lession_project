@@ -5,13 +5,13 @@ import { userReducer } from 'entities/User'
 import { createReducerManager } from './reducerManager'
 import { $api } from 'shared/api/api'
 import { type NavigateOptions } from 'react-router'
-import { type To } from 'history'
+import { type Path } from 'history'
 import { type Reducer } from 'redux'
 
 export const createReduxStore = (
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void
+    navigate?: (to: string | Partial<Path>, options?: NavigateOptions) => void
 ) => {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
