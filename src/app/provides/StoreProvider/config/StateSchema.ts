@@ -1,18 +1,21 @@
+import { type AxiosInstance } from 'axios'
+import { type CombinedState, type EnhancedStore, type ReducersMapObject, type Reducer, type AnyAction } from '@reduxjs/toolkit'
+import { type NavigateOptions } from 'react-router'
+import { type Path } from 'history'
 import { type CounterSchema } from 'entities/Counter'
 import { type UserSchema } from 'entities/User'
+import { type ArticleDetailsSchema } from 'entities/Article'
 import { type LoginSchema } from 'features/AuthByUsername'
-import { type CombinedState, type EnhancedStore, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type AnyAction, type Reducer } from 'redux'
-import { type AxiosInstance } from 'axios'
-import { type NavigateOptions } from 'react-router'
 import { type ProfileSchema } from 'features/EditableProfileCard'
-import { type Path } from 'history'
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+
+    // async
     loginForm?: LoginSchema
     profile?: ProfileSchema
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

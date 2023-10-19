@@ -109,7 +109,7 @@ export const Disabled: Story = {
     }
 }
 
-export const Square_M: Story = {
+export const SquareM: Story = {
     args: {
         children: '>',
         theme: 'backgroundInverted',
@@ -118,7 +118,7 @@ export const Square_M: Story = {
     }
 }
 
-export const Square_L: Story = {
+export const SquareL: Story = {
     args: {
         children: '>',
         theme: 'backgroundInverted',
@@ -127,7 +127,7 @@ export const Square_L: Story = {
     }
 }
 
-export const Square_XL: Story = {
+export const SquareXL: Story = {
     args: {
         children: '>',
         theme: 'backgroundInverted',

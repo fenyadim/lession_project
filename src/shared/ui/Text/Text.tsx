@@ -8,6 +8,7 @@ interface TextProps {
     text?: string
     theme?: 'primary' | 'error'
     align?: 'left' | 'right' | 'center'
+    size?: 'm' | 'l'
 }
 
 export const Text = memo((props: TextProps) => {
@@ -16,10 +17,11 @@ export const Text = memo((props: TextProps) => {
         text,
         title,
         theme = 'primary',
-        align = 'left'
+        align = 'left',
+        size = 'm'
     } = props
 
-    const additional: Array<string | undefined> = [className, styles[theme], styles[align]]
+    const additional: Array<string | undefined> = [className, styles[theme], styles[align], styles[size]]
 
     return (
         <div className={ classNames(styles.Text, {}, additional) }>

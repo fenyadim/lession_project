@@ -29,7 +29,7 @@ export const Input = memo((props: InputProps) => {
     const [focus, setFocus] = useState(false)
     const ref = useRef<HTMLInputElement>(null)
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
         onChange?.(e.target.value, e.target.name)
     }
 
@@ -37,7 +37,7 @@ export const Input = memo((props: InputProps) => {
         setFocus(true)
     }
 
-    const onBlur = () => {
+    const onBlur = (): void => {
         if (!value) {
             setFocus(false)
         }

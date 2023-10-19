@@ -64,3 +64,11 @@ export const OnlyTextDark: Story = {
 }
 
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+
+export const SizeL: Story = {
+    args: {
+        size: 'l',
+        title: 'Title Title Title Title',
+        text: 'Description, Description,Description'
+    }
+}
