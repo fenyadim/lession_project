@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react'
+import { memo, useCallback } from 'react'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
@@ -7,6 +7,8 @@ import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
 import { ProfileCard } from 'entities/Profile'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 interface ProfilePageProps {
     className?: string
@@ -24,6 +26,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     const error = useSelector(getProfileError)
     const readonly = useSelector(getProfileReadonly)
     const validateErrors = useSelector(getProfileValidateErrors)
+    const { id } = useParams<{ id: string }>()
 
     const validateErrorTranslates: Record<ValidateProfileError, string> = {
         [ValidateProfileError.SERVER_ERROR]: t(
@@ -34,11 +37,11 @@ const ProfilePage = memo((props: ProfilePageProps) => {
         [ValidateProfileError.NO_DATA]: t('Данные не указаны')
     }
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            void dispatch(fetchProfileData())
+    useInitialEffect(() => {
+        if (id) {
+            void dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
 
     const onChangeProfile = useCallback(
         (name: string, value: string | number) => {

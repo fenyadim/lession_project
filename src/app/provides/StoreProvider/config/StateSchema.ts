@@ -8,6 +8,7 @@ import { type ArticleDetailsSchema } from 'entities/Article'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ProfileSchema } from 'features/EditableProfileCard'
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage'
+import { type AddCommentFormSchema } from 'features/AddCommentForm'
 
 export interface StateSchema {
     counter: CounterSchema
@@ -18,6 +19,7 @@ export interface StateSchema {
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
     articleDetailsComments?: ArticleDetailsCommentsSchema
+    addCommentForm?: AddCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
