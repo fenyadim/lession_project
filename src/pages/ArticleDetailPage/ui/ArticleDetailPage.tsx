@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { ArticleDetails } from 'entities/Article'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Text } from 'shared/ui/Text/Text'
 import { CommentList } from 'entities/Comment'
@@ -12,9 +12,11 @@ import { useSelector } from 'react-redux'
 import { getArticleCommentsIsLoading } from '../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { AddCommentForm } from 'features/AddCommentForm'
-import { addCommentForArticle } from 'pages/ArticleDetailPage/model/services/addCommentForArticle/addCommentForArticle'
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
+import { Button } from 'shared/ui/Button/Button'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface ArticleDetailPageProps {
     className?: string
@@ -29,6 +31,7 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
 
     const { t } = useTranslation('article-details')
     const { id } = useParams<{ id: string }>()
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const comments = useSelector(getArticleComments.selectAll)
     const isLoading = useSelector(getArticleCommentsIsLoading)
@@ -41,6 +44,10 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
     const onSendComment = useCallback((text: string) => {
         void dispatch(addCommentForArticle(text))
     }, [dispatch])
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles)
+    }, [navigate])
 
     if (!id) {
         return (
@@ -56,6 +63,9 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
             <div
                 className={ classNames('', {}, [className]) }>
+                <Button onClick={ onBackToList }>
+                    { t('Назад к списку') }
+                </Button>
                 <ArticleDetails id={ id }/>
                 <Text
                     className={ styles.commentTitle }
