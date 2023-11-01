@@ -9,6 +9,7 @@ import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading,
 import { ProfileCard } from 'entities/Profile'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
+import { Page } from 'shared/ui/Page/Page'
 
 interface ProfilePageProps {
     className?: string
@@ -52,7 +53,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
-            <div>
+            <Page>
                 <ProfilePageHeader/>
                 { validateErrors?.length && validateErrors.map((err) => (
                     <Text
@@ -68,7 +69,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
                     onChangeProfile={ onChangeProfile }
                     readonly={ readonly }
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 })
