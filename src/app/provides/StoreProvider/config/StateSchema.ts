@@ -8,10 +8,12 @@ import { type ProfileSchema } from 'features/EditableProfileCard'
 import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage'
 import { type AddCommentFormSchema } from 'features/AddCommentForm'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
+import { ScrollSaveSchema } from 'features/ScrollSave'
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
+    scrollSave: ScrollSaveSchema
 
     // async
     loginForm?: LoginSchema
