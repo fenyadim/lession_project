@@ -4,6 +4,8 @@ import styles from './ArticleList.module.scss'
 import { type Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton'
+import { Text } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
 
 interface ArticleListProps {
     className?: string
@@ -31,6 +33,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         isLoading
     } = props
 
+    const { t } = useTranslation()
+
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -39,6 +43,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 className={ styles.card }
                 key={ article.id }
             />
+        )
+    }
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={ classNames('', {},
+                    [className, styles[view]]) }
+            >
+                <Text
+                    align="center"
+                    theme="error"
+                    size="l"
+                    title={ t('Статьи не найдены') }
+                />
+            </div>
         )
     }
 
@@ -51,7 +71,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 ? articles.map(renderArticle)
                 : null
             }
-            {isLoading && getSkeletons(view)}
+            { isLoading && getSkeletons(view) }
         </div>
     )
 })

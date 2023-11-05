@@ -1,4 +1,4 @@
-import { type MutableRefObject, type ReactNode, UIEvent, useRef } from 'react'
+import { type MutableRefObject, type ReactNode, type UIEvent, useRef } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Page.module.scss'
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
@@ -7,7 +7,7 @@ import { getScrollSaveByPath, scrollSaveActions } from 'features/ScrollSave'
 import { useLocation } from 'react-router-dom'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSelector } from 'react-redux'
-import { StateSchema } from 'app/provides/StoreProvider'
+import { type StateSchema } from 'app/provides/StoreProvider'
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle'
 
 interface PageProps {
@@ -45,7 +45,7 @@ export const Page = (props: PageProps) => {
     return (
         <section ref={wrapperRef} className={ classNames(styles.Page, {}, [className]) } onScroll={onScroll}>
             {children}
-            <div ref={triggerRef}/>
+            {onScrollEnd ? <div className={styles.trigger} ref={triggerRef}/> : null}
         </section>
     )
 }

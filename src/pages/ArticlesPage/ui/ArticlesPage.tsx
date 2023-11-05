@@ -1,17 +1,20 @@
 import { memo, useCallback } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { ArticleList, type ArticleView, ArticleViewSelector } from 'entities/Article'
+import { ArticleList } from 'entities/Article'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useSelector } from 'react-redux'
-import { articlePageAction, articlePageReducer, getArticles } from '../model/slices/articlesPageSlice'
+import { articlePageReducer, getArticles } from '../model/slices/articlesPageSlice'
 import { getArticlePageError, getArticlePageIsLoading, getArticlePageView } from '../model/selectors/articlesPageSelectors'
 import { Page } from 'widgets/Page/Page'
-import { fetchNextArticlePage } from 'pages/ArticlesPage/model/services/fetchNextArticlePage/fetchNextArticlePage'
+import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
-import { initArticlesPage } from 'pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage'
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
+import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters'
+import { useSearchParams } from 'react-router-dom'
+import styles from './ArticlesPage.module.scss'
 
 interface ArticlesPageProps {
     className?: string
@@ -29,18 +32,15 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     const isLoading = useSelector(getArticlePageIsLoading)
     const view = useSelector(getArticlePageView)
     const error = useSelector(getArticlePageError)
+    const [searchParams] = useSearchParams()
 
     const onLoadNextPart = useCallback(() => {
         void dispatch(fetchNextArticlePage())
     }, [dispatch])
 
     useInitialEffect(() => {
-        void dispatch(initArticlesPage())
+        void dispatch(initArticlesPage(searchParams))
     })
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlePageAction.setView(view))
-    }, [dispatch])
 
     if (error) {
         return (
@@ -53,15 +53,14 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
             <Page onScrollEnd={ onLoadNextPart }
-                className={ classNames('', {}, [className]) }>
-                <ArticleViewSelector
-                    view={ view }
-                    onViewClick={ onChangeView }
-                />
+                className={ classNames(styles.ArticlePage, {}, [className]) }>
+                <ArticlePageFilters/>
                 <ArticleList
                     isLoading={ isLoading }
                     view={ view }
-                    articles={ articles }/>
+                    articles={ articles }
+                    className={ styles.list }
+                />
             </Page>
         </DynamicModuleLoader>
     )

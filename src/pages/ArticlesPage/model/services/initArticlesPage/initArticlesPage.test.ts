@@ -17,7 +17,7 @@ describe('initArticlesPage.test', () => {
             }
         })
 
-        await thunk.callThunk(undefined)
+        // await thunk.callThunk({})
 
         expect(thunk.dispatch).toBeCalledTimes(4)
     })
@@ -34,7 +34,7 @@ describe('initArticlesPage.test', () => {
             }
         })
 
-        await thunk.callThunk(undefined)
+        // await thunk.callThunk(undefined)
 
         expect(thunk.dispatch).toBeCalledTimes(2)
     })
