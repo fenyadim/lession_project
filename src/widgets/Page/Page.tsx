@@ -26,9 +26,6 @@ export const Page = (props: PageProps) => {
     const scrollPosition = useSelector(
         (state: StateSchema) => getScrollSaveByPath(state, pathname))
 
-    console.log(pathname)
-    console.log(onScrollEnd)
-
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
