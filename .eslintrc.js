@@ -42,6 +42,7 @@ module.exports = {
         '@typescript-eslint/naming-convention': 'warn',
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        'n/no-callback-literal': 'off',
         '@typescript-eslint/no-misused-promises': [
             2,
             {

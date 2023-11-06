@@ -5,10 +5,10 @@ import { type UserSchema } from 'entities/User'
 import { type ArticleDetailsSchema } from 'entities/Article'
 import { type LoginSchema } from 'features/AuthByUsername'
 import { type ProfileSchema } from 'features/EditableProfileCard'
-import { type ArticleDetailsCommentsSchema } from 'pages/ArticleDetailPage'
 import { type AddCommentFormSchema } from 'features/AddCommentForm'
 import { type ArticlesPageSchema } from 'pages/ArticlesPage'
-import { ScrollSaveSchema } from 'features/ScrollSave'
+import { type ScrollSaveSchema } from 'features/ScrollSave'
+import { type ArticleDetailsPageSchema } from 'pages/ArticleDetailPage'
 
 export interface StateSchema {
     counter: CounterSchema
@@ -19,9 +19,9 @@ export interface StateSchema {
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlesPageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

@@ -10,7 +10,7 @@ export const useDebounce =
                 clearTimeout(timer.current)
             }
             timer.current = setTimeout(() => {
-                callback(null, ...args)
+                callback(...args)
             }, delay)
         }, [callback, delay])
     }

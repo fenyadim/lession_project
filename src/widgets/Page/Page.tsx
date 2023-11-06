@@ -23,7 +23,11 @@ export const Page = (props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
     const dispatch = useAppDispatch()
     const { pathname } = useLocation()
-    const scrollPosition = useSelector((state: StateSchema) => getScrollSaveByPath(state, pathname))
+    const scrollPosition = useSelector(
+        (state: StateSchema) => getScrollSaveByPath(state, pathname))
+
+    console.log(pathname)
+    console.log(onScrollEnd)
 
     useInfiniteScroll({
         triggerRef,
@@ -36,6 +40,7 @@ export const Page = (props: PageProps) => {
     })
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
+        console.log(e)
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
             position: e.currentTarget.scrollTop
@@ -43,9 +48,14 @@ export const Page = (props: PageProps) => {
     }, 700)
 
     return (
-        <section ref={wrapperRef} className={ classNames(styles.Page, {}, [className]) } onScroll={onScroll}>
-            {children}
-            {onScrollEnd ? <div className={styles.trigger} ref={triggerRef}/> : null}
+        <section ref={ wrapperRef }
+            className={ classNames(styles.Page, {}, [className]) }
+            onScroll={ onScroll }
+        >
+            { children }
+            { onScrollEnd
+                ? <div className={ styles.trigger } ref={ triggerRef }/>
+                : null }
         </section>
     )
 }

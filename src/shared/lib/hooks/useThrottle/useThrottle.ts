@@ -6,7 +6,7 @@ export const useThrottle = (callback: (...args: any[]) => void,
 
     return useCallback((...args) => {
         if (!throttleRef.current) {
-            callback(null, ...args)
+            callback(...args)
             throttleRef.current = true
 
             setTimeout(() => {
