@@ -3,7 +3,7 @@ import { getUserAuthData } from 'entities/User'
 import { type ThunkConfig } from 'app/provides/StoreProvider'
 import { getArticleDetailsData } from 'entities/Article'
 import { getAddCommentFormText } from '../../selectors/addCommentFormSelectors'
-import { addCommentFormActions } from 'features/AddCommentForm/model/slices/addCommentFormSlice'
+import { addCommentFormActions } from '../../slices/addCommentFormSlice'
 
 export const sendComment = createAsyncThunk<Comment, undefined, ThunkConfig<string>>(
     'addCommentForm/sendComment',

@@ -2,7 +2,7 @@ import { profileActions, profileReducer } from './profileSlice'
 import { type ProfileSchema, ValidateProfileError } from '../types/profile'
 import { Currency } from 'entities/Currency'
 import { Country } from 'entities/Country'
-import { updateProfileData } from 'features/EditableProfileCard'
+import { updateProfileData } from '../service/updateProfileData/updateProfileData'
 
 const data = {
     first: 'Тимур',

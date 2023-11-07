@@ -26,7 +26,12 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
     },
-    plugins: ['react', '@typescript-eslint', 'eslint-plugin-react-hooks'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'eslint-plugin-react-hooks',
+        'fenyadim-plugin',
+    ],
     rules: {
         '@typescript-eslint/indent': [2, 4, { 'ignoredNodes': ['JSXElement'] }],
         'react/jsx-indent': [2, 4],
@@ -35,6 +40,7 @@ module.exports = {
             2,
             { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/react-in-jsx-scope': 'off',
+        'fenyadim-plugin/path-checker': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/no-floating-promises': 'warn',

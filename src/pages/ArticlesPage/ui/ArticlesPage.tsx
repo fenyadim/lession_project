@@ -12,9 +12,9 @@ import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fet
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
-import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters'
 import { useSearchParams } from 'react-router-dom'
 import styles from './ArticlesPage.module.scss'
+import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters'
 
 interface ArticlesPageProps {
     className?: string
