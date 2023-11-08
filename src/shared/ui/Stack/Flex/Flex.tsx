@@ -1,13 +1,15 @@
 import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import styles from './Flex.module.scss'
-import { type ReactNode } from 'react'
+import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react'
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between'
 type FlexAlign = 'start' | 'center' | 'end'
 type FlexDirection = 'row' | 'column'
 type FlexGap = '4' | '8' | '16' | '32'
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
     className?: string
     children: ReactNode
     justify?: FlexJustify
