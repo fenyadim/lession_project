@@ -10,6 +10,7 @@ import { ProfileCard } from 'entities/Profile'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
 import { Page } from 'widgets/Page/Page'
+import { VStack } from 'shared/ui/Stack'
 
 interface ProfilePageProps {
     className?: string
@@ -54,21 +55,23 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
             <Page>
-                <ProfilePageHeader/>
-                { validateErrors?.length && validateErrors.map((err) => (
-                    <Text
-                        key={ err }
-                        theme="error"
-                        text={ validateErrorTranslates[err] }
+                <VStack max gap="16">
+                    <ProfilePageHeader/>
+                    { validateErrors?.length && validateErrors.map((err) => (
+                        <Text
+                            key={ err }
+                            theme="error"
+                            text={ validateErrorTranslates[err] }
+                        />
+                    )) }
+                    <ProfileCard
+                        data={ formData }
+                        isLoading={ isLoading }
+                        error={ error }
+                        onChangeProfile={ onChangeProfile }
+                        readonly={ readonly }
                     />
-                )) }
-                <ProfileCard
-                    data={ formData }
-                    isLoading={ isLoading }
-                    error={ error }
-                    onChangeProfile={ onChangeProfile }
-                    readonly={ readonly }
-                />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

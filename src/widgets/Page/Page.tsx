@@ -37,7 +37,6 @@ export const Page = (props: PageProps) => {
     })
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        console.log(e)
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
             position: e.currentTarget.scrollTop

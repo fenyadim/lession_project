@@ -21,6 +21,7 @@ import { getArticleRecommendationsIsLoading } from '../../model/selectors/recomm
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader'
+import { VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailPageProps {
     className?: string
@@ -68,26 +69,28 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
             <Page
                 className={ classNames('', {}, [className]) }
             >
-                <ArticleDetailPageHeader/>
-                <ArticleDetails id={ id }/>
-                <Text
-                    size="l"
-                    className={ styles.commentTitle }
-                    title={ t('Рекомендуем') }
-                />
-                <ArticleList
-                    articles={ recommendations }
-                    isLoading={ recommendationsIsLoading }
-                    className={ styles.recommendations }
-                    target="_blank"
-                />
-                <Text
-                    size="l"
-                    className={ styles.commentTitle }
-                    title={ t('Комментарии') }
-                />
-                <AddCommentForm onSendComment={ onSendComment }/>
-                <CommentList isLoading={ isLoading } comments={ comments }/>
+                <VStack gap="16" max>
+                    <ArticleDetailPageHeader/>
+                    <ArticleDetails id={ id }/>
+                    <Text
+                        size="l"
+                        className={ styles.commentTitle }
+                        title={ t('Рекомендуем') }
+                    />
+                    <ArticleList
+                        articles={ recommendations }
+                        isLoading={ recommendationsIsLoading }
+                        className={ styles.recommendations }
+                        target="_blank"
+                    />
+                    <Text
+                        size="l"
+                        className={ styles.commentTitle }
+                        title={ t('Комментарии') }
+                    />
+                    <AddCommentForm onSendComment={ onSendComment }/>
+                    <CommentList isLoading={ isLoading } comments={ comments }/>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )
