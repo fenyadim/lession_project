@@ -17,7 +17,7 @@ interface ProfileCardProps {
     isLoading?: boolean
     error?: string
     readonly?: boolean
-    onChangeProfile: (name: string, value: string | number) => void
+    onChangeProfile: (value: string | number, name: keyof Profile) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
@@ -32,16 +32,17 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
     const { t } = useTranslation('profile')
 
-    const onChangeHandler = useCallback((value: string, name?: string) => {
-        if (name === 'age') {
-            const numberValue = value.match(/^\d+$/)?.input
-            if (numberValue !== undefined) {
-                onChangeProfile(name as keyof Profile, Number(value))
+    const onChangeHandler = useCallback(
+        (value: string, name: keyof Profile) => {
+            if (name === 'age') {
+                const numberValue = value.match(/^\d+$/)?.input
+                if (numberValue !== undefined) {
+                    onChangeProfile(Number(value), name)
+                }
+            } else {
+                onChangeProfile(value, name)
             }
-        } else {
-            onChangeProfile(name as keyof Profile, value)
-        }
-    }, [onChangeProfile])
+        }, [onChangeProfile])
 
     if (isLoading) {
         return (

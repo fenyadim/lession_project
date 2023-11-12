@@ -2,11 +2,12 @@ import { memo, useCallback } from 'react'
 import { Country } from '../../model/types/country'
 import { useTranslation } from 'react-i18next'
 import { ListBox } from 'shared/ui/ListBox/ListBox'
+import { type Profile } from 'features/EditableProfileCard'
 
 interface CountrySelectProps {
     className?: string
     value?: Country
-    onChange?: (value: Country) => void
+    onChange?: (value: Country, name: keyof Profile) => void
     readonly?: boolean
 }
 
@@ -24,7 +25,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     const { t } = useTranslation('profile')
 
     const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country)
+        onChange?.(value as Country, 'country')
     }, [onChange])
 
     return (
@@ -36,7 +37,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             value={ value }
             onChange={ onChangeHandler }
             readonly={ readonly }
-            direction="top"
+            direction="top right"
         />
     )
 })

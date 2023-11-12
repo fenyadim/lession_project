@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader'
 import { Text } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
-import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
+import { fetchProfileData, getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, getProfileValidateErrors, type Profile, profileActions, profileReducer, ValidateProfileError } from 'features/EditableProfileCard'
 import { ProfileCard } from 'entities/Profile'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useParams } from 'react-router-dom'
@@ -46,7 +46,7 @@ const ProfilePage = memo((props: ProfilePageProps) => {
     })
 
     const onChangeProfile = useCallback(
-        (name: string, value: string | number) => {
+        (value: string | number, name: keyof Profile) => {
             dispatch(profileActions.updateProfile({
                 [name]: value
             }))

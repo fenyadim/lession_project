@@ -1,4 +1,4 @@
-import { memo, type ReactNode } from 'react'
+import { forwardRef, type ReactNode } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './AppLink.module.scss'
@@ -14,23 +14,24 @@ interface AppLinkProps extends LinkProps {
     children?: ReactNode
 }
 
-export const AppLink = memo((props: AppLinkProps) => {
-    const {
-        className,
-        children,
-        theme = AppLinkTheme.PRIMARY,
-        ...otherProps
-    } = props
+export const AppLink = forwardRef<typeof Link, AppLinkProps>(
+    (props: AppLinkProps, ref) => {
+        const {
+            className,
+            children,
+            theme = AppLinkTheme.PRIMARY,
+            ...otherProps
+        } = props
 
-    return (
-        <Link
-            className={ classNames(styles.AppLink, {},
-                [className, styles[theme]]) }
-            { ...otherProps }
-        >
-            { children }
-        </Link>
-    )
-})
+        return (
+            <Link
+                className={ classNames(styles.AppLink, {},
+                    [className, styles[theme]]) }
+                { ...otherProps }
+            >
+                { children }
+            </Link>
+        )
+    })
 
 AppLink.displayName = 'AppLink'

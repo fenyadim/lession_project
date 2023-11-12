@@ -1,19 +1,19 @@
-import { type ChangeEvent, type InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react'
+import { type ChangeEvent, type InputHTMLAttributes, useEffect, useRef, useState } from 'react'
 import { classNames, type ModsType } from 'shared/lib/classNames/classNames'
 import styles from './Input.module.scss'
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'placeholder' | 'readOnly'>
 
-interface InputProps extends HTMLInputProps {
+interface InputProps<T extends string> extends HTMLInputProps {
     className?: string
     value?: string | number
-    onChange?: (value: string, name?: string) => void
+    onChange?: (value: string, name: T) => void
     placeholder?: string
     autofocus?: boolean
     readonly?: boolean
 }
 
-export const Input = memo((props: InputProps) => {
+export const Input = <T extends string> (props: InputProps<T>) => {
     const {
         className,
         value,
@@ -30,7 +30,10 @@ export const Input = memo((props: InputProps) => {
     const ref = useRef<HTMLInputElement>(null)
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
-        onChange?.(e.target.value, e.target.name)
+        if (e.target.name) {
+            onChange?.(e.target.value, e.target.name as T)
+        }
+        onChange?.(e.target.value, '' as T)
     }
 
     const onFocus = (): void => {
@@ -84,6 +87,4 @@ export const Input = memo((props: InputProps) => {
             />
         </div>
     )
-})
-
-Input.displayName = 'Input'
+}

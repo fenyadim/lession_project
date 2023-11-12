@@ -2,11 +2,12 @@ import { memo, useCallback } from 'react'
 import { Currency } from '../../model/types/currency'
 import { useTranslation } from 'react-i18next'
 import { ListBox } from 'shared/ui/ListBox/ListBox'
+import { type Profile } from 'features/EditableProfileCard'
 
 interface CurrencySelectProps {
     className?: string
     value?: Currency
-    onChange?: (value: Currency, name?: string) => void
+    onChange?: (value: Currency, name: keyof Profile) => void
     readonly?: boolean
 }
 
@@ -21,8 +22,8 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     const { t } = useTranslation('profile')
 
-    const onChangeHandler = useCallback((value: string, name?: string) => {
-        onChange?.(value as Currency, name)
+    const onChangeHandler = useCallback((value: string) => {
+        onChange?.(value as Currency, 'currency')
     }, [onChange])
 
     return (
@@ -34,7 +35,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
             value={ value }
             onChange={ onChangeHandler }
             readonly={ readonly }
-            direction="top"
+            direction="top right"
         />
     )
 })

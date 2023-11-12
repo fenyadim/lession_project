@@ -90,7 +90,7 @@ export const MenuDirectionTop: Story = {
                 unavailable: true
             }
         ],
-        direction: 'top'
+        direction: 'top left'
     }
 }
 

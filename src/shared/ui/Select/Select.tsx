@@ -12,7 +12,7 @@ interface SelectProps<T extends string> {
     label?: string
     options?: Array<SelectOptions<T>>
     value?: T
-    onChange?: (value: T, name?: string) => void
+    onChange?: (value: T, name: string) => void
     readonly?: boolean
     name?: string
 }
