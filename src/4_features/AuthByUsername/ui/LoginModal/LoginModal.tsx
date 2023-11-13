@@ -1,7 +1,7 @@
 import { type FC, Suspense } from 'react'
 import { Modal, type ModalProps } from '3_widgets/Modal'
-import { LoginFormAsync } from '../LoginForm/LoginForm.async'
 import { Loader } from '6_shared/ui/Loader/Loader'
+import { LoginFormAsync } from '../LoginForm/LoginForm.async'
 
 export const LoginModal: FC<ModalProps> = (props) => {
     const { isOpen, onClose } = props

@@ -1,8 +1,8 @@
 import { memo, useCallback } from 'react'
-import { Country } from '../../model/types/country'
 import { useTranslation } from 'react-i18next'
-import { ListBox } from '6_shared/ui/ListBox/ListBox'
 import { type Profile } from '4_features/EditableProfileCard'
+import { ListBox } from '6_shared/ui/ListBox/ListBox'
+import { Country } from '../../model/types/country'
 
 interface CountrySelectProps {
     className?: string

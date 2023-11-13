@@ -1,11 +1,11 @@
 import { memo } from 'react'
-import { classNames } from '6_shared/lib/classNames/classNames'
-import styles from './ArticleViewSelector.module.scss'
-import { ArticleView } from '../../model/types/article'
 import ListIcon from '6_shared/assets/icons/list.svg'
 import TiledIcon from '6_shared/assets/icons/tiled.svg'
+import { classNames } from '6_shared/lib/classNames/classNames'
 import { Button } from '6_shared/ui/Button/Button'
 import { Icon } from '6_shared/ui/Icon/Icon'
+import { ArticleView } from '../../model/types/article'
+import styles from './ArticleViewSelector.module.scss'
 
 interface ArticleViewSelectorProps {
     className?: string

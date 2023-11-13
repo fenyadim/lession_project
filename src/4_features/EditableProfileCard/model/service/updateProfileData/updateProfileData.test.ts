@@ -1,8 +1,8 @@
-import { updateProfileData } from './updateProfileData'
-import { TestAsyncThunk } from '6_shared/lib/tests/testAsyncThunk/testAsyncThunk'
-import { Currency } from '5_entities/Currency'
 import { Country } from '5_entities/Country'
+import { Currency } from '5_entities/Currency'
+import { TestAsyncThunk } from '6_shared/lib/tests/testAsyncThunk/testAsyncThunk'
 import { ValidateProfileError } from '../../types/profile'
+import { updateProfileData } from './updateProfileData'
 
 jest.mock('axios')
 

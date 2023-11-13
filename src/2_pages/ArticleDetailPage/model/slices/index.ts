@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import { type ArticleDetailsPageSchema } from '../types'
-import { articleDetailsRecommendationReducer } from '../slices/articleDetailsRecommendationSlice'
 import { articleDetailsCommentsReducer } from '../slices/articleDetailsCommentsSlice'
+import { articleDetailsRecommendationReducer } from '../slices/articleDetailsRecommendationSlice'
+import { type ArticleDetailsPageSchema } from '../types'
 
 export const articleDetailsPageReducer = combineReducers<ArticleDetailsPageSchema>(
     {

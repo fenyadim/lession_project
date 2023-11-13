@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
 import { Theme } from '1_app/provides/ThemeProvider'
+import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
 import AboutPage from './AboutPage'
 
 const meta: Meta<typeof AboutPage> = {

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { ArticleDetailPageHeader } from './ArticleDetailPageHeader'
 
 const meta: Meta<typeof ArticleDetailPageHeader> = {

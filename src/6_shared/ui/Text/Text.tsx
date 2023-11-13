@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { classNames } from '6_shared/lib/classNames/classNames'
+import { classNames } from '../../lib/classNames/classNames'
 import styles from './Text.module.scss'
 
 type TextTheme = 'primary' | 'error' | 'inverted'

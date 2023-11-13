@@ -9,6 +9,7 @@ module.exports = {
         'plugin:react/recommended',
         'plugin:react/jsx-runtime',
         'plugin:storybook/recommended',
+        'plugin:@conarti/feature-sliced/recommended',
     ],
     overrides: [
         {
@@ -30,7 +31,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'eslint-plugin-react-hooks',
-        'fenyadim-plugin',
+        // 'fenyadim-plugin',
     ],
     rules: {
         '@typescript-eslint/indent': [2, 4, { 'ignoredNodes': ['JSXElement'] }],
@@ -40,7 +41,7 @@ module.exports = {
             2,
             { extensions: ['.js', '.jsx', '.tsx'] }],
         'react/react-in-jsx-scope': 'off',
-        'fenyadim-plugin/path-checker': 'error',
+        // 'fenyadim-plugin/path-checker': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/no-floating-promises': 'warn',
@@ -49,6 +50,8 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/no-non-null-assertion': 'off',
         'n/no-callback-literal': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@conarti/feature-sliced/layers-slices': 'warn',
         '@typescript-eslint/no-misused-promises': [
             2,
             {

@@ -1,8 +1,8 @@
 import { type Preview } from '@storybook/react'
+import { Theme } from '1_app/provides/ThemeProvider'
+import { RouterDecorator } from '6_shared/config/storybook/RouterDecorator'
 import { StyleDecorator } from '6_shared/config/storybook/StyleDecorator'
 import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
-import { RouterDecorator } from '6_shared/config/storybook/RouterDecorator'
-import { Theme } from '1_app/provides/ThemeProvider'
 
 const preview: Preview = {
     decorators: [

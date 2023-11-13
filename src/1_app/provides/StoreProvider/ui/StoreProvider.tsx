@@ -1,8 +1,8 @@
+import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { type FC } from 'react'
 import { Provider } from 'react-redux'
-import { createReduxStore } from '1_app/provides/StoreProvider/config/store'
-import { type StateSchema } from '1_app/provides/StoreProvider/config/StateSchema'
-import { type ReducersMapObject } from '@reduxjs/toolkit'
+import { type StateSchema } from '../../../provides/StoreProvider/config/StateSchema'
+import { createReduxStore } from '../../../provides/StoreProvider/config/store'
 
 interface StoreProviderProps {
     initialState?: DeepPartial<StateSchema>

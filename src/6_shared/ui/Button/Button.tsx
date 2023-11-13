@@ -1,5 +1,5 @@
 import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
-import { classNames, type ModsType } from '6_shared/lib/classNames/classNames'
+import { classNames, type ModsType } from '../../lib/classNames/classNames'
 import styles from './Button.module.scss'
 
 type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'

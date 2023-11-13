@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
-import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator'
 import { Theme } from '1_app/provides/ThemeProvider'
+import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
 import LoginForm from './LoginForm'
 
 const meta: Meta<typeof LoginForm> = {

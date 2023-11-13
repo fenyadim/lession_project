@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Skeleton } from './Skeleton'
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Theme } from '1_app/provides/ThemeProvider'
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator'
+import { Skeleton } from './Skeleton'
 
 const meta: Meta<typeof Skeleton> = {
     title: '6_shared/Skeleton',

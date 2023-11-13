@@ -1,8 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-
-import AddCommentForm from './AddCommentForm'
 import { action } from '@storybook/addon-actions'
+import type { Meta, StoryObj } from '@storybook/react'
 import { StoreDecorator } from '6_shared/config/storybook/StoreDecorator'
+import AddCommentForm from './AddCommentForm'
 
 const meta: Meta<typeof AddCommentForm> = {
     title: '4_features/AddCommentForm',

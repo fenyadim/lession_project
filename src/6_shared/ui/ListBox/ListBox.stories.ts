@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { ListBox } from './ListBox'
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
 import { Theme } from '1_app/provides/ThemeProvider'
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator'
+import { ListBox } from './ListBox'
 
 const meta: Meta<typeof ListBox> = {
     title: '6_shared/ListBox',

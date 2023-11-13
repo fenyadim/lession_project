@@ -1,20 +1,16 @@
 import { memo, useCallback } from 'react'
-import { classNames } from '6_shared/lib/classNames/classNames'
-import { ArticleList } from '5_entities/Article'
-import { DynamicModuleLoader, type ReducersList } from '6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useInitialEffect } from '6_shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { useAppDispatch } from '6_shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useSelector } from 'react-redux'
-import { articlePageReducer, getArticles } from '../model/slices/articlesPageSlice'
-import { getArticlePageError, getArticlePageIsLoading, getArticlePageView } from '../model/selectors/articlesPageSelectors'
-import { Page } from '3_widgets/Page/Page'
-import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage'
-import { Text } from '6_shared/ui/Text/Text'
-import { useTranslation } from 'react-i18next'
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
 import { useSearchParams } from 'react-router-dom'
-import styles from './ArticlesPage.module.scss'
+import { Page } from '3_widgets/Page/Page'
+import { classNames } from '6_shared/lib/classNames/classNames'
+import { DynamicModuleLoader, type ReducersList } from '6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '6_shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '6_shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage'
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
+import { articlePageReducer } from '../model/slices/articlesPageSlice'
+import { ArticleInfiniteList } from '../ui/ArticleInfiniteList/ArticleInfiniteList'
 import { ArticlePageFilters } from './ArticlePageFilters/ArticlePageFilters'
+import styles from './ArticlesPage.module.scss'
 
 interface ArticlesPageProps {
     className?: string
@@ -26,12 +22,8 @@ const reducers: ReducersList = {
 
 const ArticlesPage = memo((props: ArticlesPageProps) => {
     const { className } = props
-    const { t } = useTranslation()
+
     const dispatch = useAppDispatch()
-    const articles = useSelector(getArticles.selectAll)
-    const isLoading = useSelector(getArticlePageIsLoading)
-    const view = useSelector(getArticlePageView)
-    const error = useSelector(getArticlePageError)
     const [searchParams] = useSearchParams()
 
     const onLoadNextPart = useCallback(() => {
@@ -42,25 +34,12 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
         void dispatch(initArticlesPage(searchParams))
     })
 
-    if (error) {
-        return (
-            <Page>
-                <Text title={ t('Что-то пошло не так') } theme="error"/>
-            </Page>
-        )
-    }
-
     return (
         <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
             <Page onScrollEnd={ onLoadNextPart }
                 className={ classNames(styles.ArticlePage, {}, [className]) }>
                 <ArticlePageFilters/>
-                <ArticleList
-                    isLoading={ isLoading }
-                    view={ view }
-                    articles={ articles }
-                    className={ styles.list }
-                />
+                <ArticleInfiniteList className={ styles.list }/>
             </Page>
         </DynamicModuleLoader>
     )

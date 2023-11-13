@@ -1,9 +1,9 @@
 import { Menu } from '@headlessui/react'
-import { classNames } from '6_shared/lib/classNames/classNames'
-import styles from './Dropdown.module.scss'
 import { Fragment, type ReactNode } from 'react'
-import { type DropdownDirection } from '6_shared/types/ui'
+import { classNames } from '../../lib/classNames/classNames'
+import { type DropdownDirection } from '../../types/ui'
 import { AppLink } from '../AppLink/AppLink'
+import styles from './Dropdown.module.scss'
 
 export interface DropdownItem {
     disabled?: boolean

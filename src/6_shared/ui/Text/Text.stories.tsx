@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Text } from './Text'
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Theme } from '1_app/provides/ThemeProvider'
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator'
+import { Text } from './Text'
 
 const meta: Meta<typeof Text> = {
     title: '6_shared/Text',

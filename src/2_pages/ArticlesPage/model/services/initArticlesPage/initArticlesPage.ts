@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type ThunkConfig } from '1_app/provides/StoreProvider'
-import { getArticlePageInited } from '../../selectors/articlesPageSelectors'
-import { articlePageAction } from '../../slices/articlesPageSlice'
-import { fetchArticleList } from '../../services/fetchArticleList/fetchArticleList'
-import { type SortOrder } from '6_shared/types'
 import { type ArticleSortField, type ArticleType } from '5_entities/Article'
+import { type SortOrder } from '6_shared/types'
+import { getArticlePageInited } from '../../selectors/articlesPageSelectors'
+import { fetchArticleList } from '../../services/fetchArticleList/fetchArticleList'
+import { articlePageAction } from '../../slices/articlesPageSlice'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(

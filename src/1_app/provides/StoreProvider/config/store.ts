@@ -1,11 +1,12 @@
 import { type CombinedState, configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
-import { type StateSchema, type ThunkExtraArg } from './StateSchema'
-import { counterReducer } from '5_entities/Counter'
-import { userReducer } from '5_entities/User'
-import { createReducerManager } from './reducerManager'
-import { $api } from '6_shared/api/api'
 import { type Reducer } from 'redux'
 import { scrollSaveReducer } from '4_features/ScrollSave'
+import { counterReducer } from '5_entities/Counter'
+import { userReducer } from '5_entities/User'
+import { $api } from '6_shared/api/api'
+import { rtkApi } from '6_shared/api/rtkApi'
+import { createReducerManager } from './reducerManager'
+import { type StateSchema, type ThunkExtraArg } from './StateSchema'
 
 export const createReduxStore = (
     initialState?: StateSchema,
@@ -15,7 +16,8 @@ export const createReduxStore = (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        scrollSave: scrollSaveReducer
+        scrollSave: scrollSaveReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     }
 
     const reducerManager = createReducerManager(rootReducers)
@@ -32,7 +34,9 @@ export const createReduxStore = (
             thunk: {
                 extraArgument: extraArg
             }
-        })
+        }).concat(
+            rtkApi.middleware
+        )
     })
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
 import { ArticlePageFilters } from './ArticlePageFilters'
 
 const meta: Meta<typeof ArticlePageFilters> = {

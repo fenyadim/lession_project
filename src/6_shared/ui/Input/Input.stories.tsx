@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-
-import { Input } from './Input'
-import { ThemeDecorator } from '6_shared/config/storybook/ThemeDecorator'
+// eslint-disable-next-line @conarti/feature-sliced/layers-slices
 import { Theme } from '1_app/provides/ThemeProvider'
+import { ThemeDecorator } from '../../config/storybook/ThemeDecorator'
+import { Input } from './Input'
 
 const meta: Meta<typeof Input> = {
     title: '6_shared/Input',

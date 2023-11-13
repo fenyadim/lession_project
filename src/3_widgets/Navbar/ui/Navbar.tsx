@@ -1,16 +1,16 @@
 import { memo, useCallback, useState } from 'react'
-import { classNames } from '6_shared/lib/classNames/classNames'
-import styles from './Navbar.module.scss'
-import { Button } from '6_shared/ui/Button/Button'
 import { useTranslation } from 'react-i18next'
-import { LoginModal } from '4_features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
+import { LoginModal } from '4_features/AuthByUsername'
 import { getUserAuthData, userActions } from '5_entities/User'
-import { Text } from '6_shared/ui/Text/Text'
-import { AppLink, AppLinkTheme } from '6_shared/ui/AppLink/AppLink'
 import { RoutePath } from '6_shared/config/routeConfig/routeConfig'
-import { Dropdown } from '6_shared/ui/Dropdown/Dropdown'
+import { classNames } from '6_shared/lib/classNames/classNames'
+import { AppLink, AppLinkTheme } from '6_shared/ui/AppLink/AppLink'
 import { Avatar } from '6_shared/ui/Avatar/Avatar'
+import { Button } from '6_shared/ui/Button/Button'
+import { Dropdown } from '6_shared/ui/Dropdown/Dropdown'
+import { Text } from '6_shared/ui/Text/Text'
+import styles from './Navbar.module.scss'
 
 interface NavbarProps {
     className?: string
