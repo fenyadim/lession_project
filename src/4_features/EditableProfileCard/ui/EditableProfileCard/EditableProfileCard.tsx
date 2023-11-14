@@ -3,25 +3,46 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { ProfileCard } from '5_entities/Profile'
 import { classNames } from '6_shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { useAppDispatch } from '6_shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useInitialEffect } from '6_shared/lib/hooks/useInitialEffect/useInitialEffect'
+import {
+    DynamicModuleLoader,
+    type ReducersList
+} from '6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    useAppDispatch
+} from '6_shared/lib/hooks/useAppDispatch/useAppDispatch'
+import {
+    useInitialEffect
+} from '6_shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { VStack } from '6_shared/ui/Stack'
 import { Text } from '6_shared/ui/Text/Text'
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
-import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData'
+import {
+    getProfileError
+} from '../../model/selectors/getProfileError/getProfileError'
+import {
+    getProfileForm
+} from '../../model/selectors/getProfileForm/getProfileForm'
+import {
+    getProfileIsLoading
+} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
+import {
+    getProfileReadonly
+} from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import {
+    getProfileValidateErrors
+} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import {
+    fetchProfileData
+} from '../../model/service/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { type Profile, ValidateProfileError } from '../../model/types/profile'
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
+import {
+    EditableProfileCardHeader
+} from '../EditableProfileCardHeader/EditableProfileCardHeader'
 import styles from './EditableProfileCard.module.scss'
 
 interface EditableProfileCardProps {
     className?: string
-    id: string
+    id?: string
 }
 
 const reducers: ReducersList = {

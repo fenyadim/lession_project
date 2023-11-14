@@ -17,7 +17,7 @@ import styles from './ArticleDetailComments.module.scss'
 
 interface ArticleDetailCommentsProps {
     className?: string
-    id: string
+    id?: string
 }
 
 export const ArticleDetailComments = memo(

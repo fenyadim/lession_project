@@ -1,4 +1,4 @@
-import { type FC, type MouseEvent, type MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import { type MouseEvent, type MutableRefObject, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames, type ModsType } from '6_shared/lib/classNames/classNames'
 import { Portal } from '6_shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
@@ -8,11 +8,12 @@ export interface ModalProps {
     isOpen?: boolean
     onClose: () => void
     lazy?: boolean
+    children?: ReactNode
 }
 
 const ANIMATION_DELAY = 100
 
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps) => {
     const { className, children, isOpen, onClose, lazy } = props
 
     const [isClosing, setIsClosing] = useState(false)

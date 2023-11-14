@@ -4,7 +4,9 @@ import { classNames } from '6_shared/lib/classNames/classNames'
 import { Text } from '6_shared/ui/Text/Text'
 import { type Article, ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
+import {
+    ArticleListItemSkeleton
+} from '../ArticleListItem/ArticleListItemSkeleton'
 import styles from './ArticleList.module.scss'
 
 interface ArticleListProps {
@@ -49,7 +51,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
         )
     }
 
-    if (!isLoading && !articles.length) {
+    if (!isLoading && !articles) {
         return (
             <div
                 className={ classNames('', {},
