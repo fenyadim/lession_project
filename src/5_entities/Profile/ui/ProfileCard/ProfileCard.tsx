@@ -100,6 +100,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 className={ styles.input }
                 onChange={ onChangeHandler }
                 readonly={ readonly }
+                data-testid="ProfileCard.firstname"
             />
             <Input
                 name="lastname"
@@ -108,6 +109,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
                 className={ styles.input }
                 onChange={ onChangeHandler }
                 readonly={ readonly }
+                data-testid="ProfileCard.lastname"
             />
             <Input
                 name="age"
