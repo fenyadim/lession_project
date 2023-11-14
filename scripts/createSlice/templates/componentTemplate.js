@@ -20,6 +20,6 @@ export const ${componentName} = memo((props: ${componentName}Props) => {
     )
 })
 
-${componentName}.displayName = ${componentName}
+${componentName}.displayName = '${componentName}'
 
 `
