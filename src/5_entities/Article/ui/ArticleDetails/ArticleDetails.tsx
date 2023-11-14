@@ -130,7 +130,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             reducers={ reducers }
             removeAfterUnmount
         >
-            <VStack gap="16" className={
+            <VStack gap="16" max className={
                 classNames(styles.ArticleDetails, {}, [className])
             }>
                 { content }

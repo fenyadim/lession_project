@@ -20,7 +20,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <VStack className={ classNames(styles.CommentCard, {},
+            <VStack gap="8" max className={ classNames(styles.CommentCard, {},
                 [className, styles.loading]) }>
                 <div className={ styles.header }>
                     <Skeleton width={ 30 } height={ 30 } border={ '50%' }/>
