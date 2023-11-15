@@ -21,15 +21,16 @@ export function buildLoaders (options: BuildOption): webpack.RuleSetRule[] {
         ]
     }
 
-    const babelLoader = buildBabelLoader(options)
-
-    const tsLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-    }
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false })
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true })
 
     const cssLoader = buildCssLoaders(isDev)
 
-    return [svgLoader, fileLoader, babelLoader, tsLoader, cssLoader]
+    return [
+        svgLoader,
+        fileLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        cssLoader
+    ]
 }
