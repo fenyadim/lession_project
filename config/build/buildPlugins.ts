@@ -1,4 +1,5 @@
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -6,7 +7,12 @@ import webpack from 'webpack'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import { type BuildOption } from './types/config'
 
-export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOption): webpack.WebpackPluginInstance[] {
+export function buildPlugins ({
+    paths,
+    isDev,
+    apiUrl,
+    project
+}: BuildOption): webpack.WebpackPluginInstance[] {
     const plugins = [
         new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
@@ -25,6 +31,10 @@ export function buildPlugins ({ paths, isDev, apiUrl, project }: BuildOption): w
             patterns: [
                 { from: paths.locales, to: paths.buildLocales }
             ]
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node-modules/,
+            failOnError: true
         })
     ]
 
