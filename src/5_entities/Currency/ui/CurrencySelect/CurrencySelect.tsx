@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { type Profile } from '4_features/EditableProfileCard'
-import { ListBox } from '6_shared/ui/ListBox/ListBox'
+import { ListBox } from '6_shared/ui/Popups/ui/ListBox/ListBox'
 import { Currency } from '../../model/types/currency'
 
 interface CurrencySelectProps {
@@ -28,13 +28,13 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
 
     return (
         <ListBox
-            className={ className }
-            label={ t('Укажите валюту') }
-            defaultValue={ t('Укажите валюту') }
-            items={ options }
-            value={ value }
-            onChange={ onChangeHandler }
-            readonly={ readonly }
+            className={className}
+            label={t('Укажите валюту')}
+            defaultValue={t('Укажите валюту')}
+            items={options}
+            value={value}
+            onChange={onChangeHandler}
+            readonly={readonly}
             direction="top right"
         />
     )

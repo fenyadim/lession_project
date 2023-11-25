@@ -5,7 +5,7 @@ import styles from './Card.module.scss'
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
     children: ReactNode
-    theme?: 'primary' | 'outline'
+    theme?: 'primary' | 'outline' | 'inverted' | 'invertedOutline'
 }
 
 export const Card = memo((props: CardProps) => {
@@ -13,11 +13,11 @@ export const Card = memo((props: CardProps) => {
 
     return (
         <div
-            className={ classNames(styles.Card, {},
-                [className, styles[theme]]) }
-            { ...otherProps }
+            className={classNames(styles.Card, {},
+                [className, styles[theme]])}
+            {...otherProps}
         >
-            { children }
+            {children}
         </div>
     )
 })

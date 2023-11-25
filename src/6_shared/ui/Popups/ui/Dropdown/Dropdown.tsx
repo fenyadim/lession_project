@@ -1,8 +1,10 @@
 import { Menu } from '@headlessui/react'
 import { Fragment, type ReactNode } from 'react'
-import { classNames } from '../../lib/classNames/classNames'
-import { type DropdownDirection } from '../../types/ui'
-import { AppLink } from '../AppLink/AppLink'
+import { classNames } from '../../../../lib/classNames/classNames'
+import { type DropdownDirection } from '../../../../types/ui'
+import { AppLink } from '../../../AppLink/AppLink'
+import { mapDirectionClass } from '../../styles/consts'
+import popupStyles from '../../styles/popup.module.scss'
 import styles from './Dropdown.module.scss'
 
 export interface DropdownItem {
@@ -19,13 +21,6 @@ interface DropdownProps {
     direction?: DropdownDirection
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': styles.optionsBottomLeft,
-    'bottom right': styles.optionsBottomRight,
-    'top left': styles.optionsTopLeft,
-    'top right': styles.optionsTopRight
-}
-
 export const Dropdown = (props: DropdownProps) => {
     const {
         className,
@@ -37,63 +32,63 @@ export const Dropdown = (props: DropdownProps) => {
     return (
         <Menu
             as="div"
-            className={ classNames(
-                styles.Dropdown,
+            className={classNames(
+                '',
                 {},
-                [className]
-            ) }
+                [className, popupStyles.popup]
+            )}
         >
             <Menu.Button
-                className={ styles.btn }
+                className={popupStyles.trigger}
             >
-                { trigger }
+                {trigger}
             </Menu.Button>
             <Menu.Items
-                as={ 'div' }
-                className={ classNames(
+                as={'div'}
+                className={classNames(
                     styles.menu,
                     {},
                     [mapDirectionClass[direction]])
                 }>
-                { items.map((item, index) => {
+                {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
-                            disabled={ item.disabled }
-                            onClick={ item.onClick }
-                            className={ classNames(
+                            disabled={item.disabled}
+                            onClick={item.onClick}
+                            className={classNames(
                                 styles.item,
-                                { [styles.active]: active },
+                                { [popupStyles.active]: active },
                                 []
-                            ) }
+                            )}
                         >
-                            { item.content }
+                            {item.content}
                         </button>
                     )
 
                     if (item.href) {
                         return (
                             <Menu.Item
-                                key={ index }
-                                as={ AppLink }
-                                to={ item.href }
-                                disabled={ item.disabled }
+                                key={index}
+                                as={AppLink}
+                                to={item.href}
+                                disabled={item.disabled}
                             >
-                                { content }
+                                {content}
                             </Menu.Item>
                         )
                     }
 
                     return (
                         <Menu.Item
-                            key={ index }
-                            as={ Fragment }
-                            disabled={ item.disabled }
+                            key={index}
+                            as={Fragment}
+                            disabled={item.disabled}
                         >
-                            { content }
+                            {content}
                         </Menu.Item>
                     )
-                }) }
+                })}
             </Menu.Items>
         </Menu>
     )
