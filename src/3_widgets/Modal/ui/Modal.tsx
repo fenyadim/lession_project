@@ -1,5 +1,6 @@
-import { type MouseEvent, type MutableRefObject, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
+import { type MutableRefObject, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames, type ModsType } from '6_shared/lib/classNames/classNames'
+import { Overlay } from '6_shared/ui/Overlay/Overlay'
 import { Portal } from '6_shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
 
@@ -58,23 +59,18 @@ export const Modal = (props: ModalProps) => {
         }
     }, [isOpen, onKeyDown])
 
-    const onContentClick = (e: MouseEvent): void => {
-        e.stopPropagation()
-    }
-
     if (lazy && !isMounted) {
         return null
     }
 
     return (
         <Portal>
-            <div className={ classNames(styles.Modal, mods,
-                [className]) }>
-                <div className={ styles.overlay } onClick={ closeHandler }>
-                    <div className={ styles.content }
-                        onClick={ onContentClick }>
-                        { children }
-                    </div>
+            <div className={classNames(styles.Modal, mods,
+                [className])}
+            >
+                <Overlay onClick={closeHandler}/>
+                <div className={styles.content}>
+                    {children}
                 </div>
             </div>
         </Portal>
