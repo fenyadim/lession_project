@@ -34,12 +34,12 @@ module.exports = {
         // 'fenyadim-plugin',
     ],
     rules: {
-        '@typescript-eslint/indent': [2, 4, { 'ignoredNodes': ['JSXElement'] }],
+        '@typescript-eslint/indent': [2, 4, {'ignoredNodes': ['JSXElement']}],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         'react/jsx-filename-extension': [
             2,
-            { extensions: ['.js', '.jsx', '.tsx'] }],
+            {extensions: ['.js', '.jsx', '.tsx']}],
         'react/react-in-jsx-scope': 'off',
         // 'fenyadim-plugin/path-checker': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -52,6 +52,9 @@ module.exports = {
         'n/no-callback-literal': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@conarti/feature-sliced/layers-slices': 'warn',
+        '@typescript-eslint/consistent-type-imports': [1, {
+            'disallowTypeAnnotations': false
+        }],
         '@typescript-eslint/no-misused-promises': [
             2,
             {
