@@ -16,6 +16,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     }
     config.resolve!.modules = [paths.src, 'node_modules']
     config.resolve!.extensions!.push('.ts', '.tsx')
+    config.resolve!.alias = { '@': paths.src }
 
     config.module!.rules = rules.map((rule: RuleSetRule) => {
         if ((rule.test as string)?.toString().includes('svg')) {

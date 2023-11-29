@@ -1,7 +1,7 @@
 import { memo } from 'react'
-import { classNames } from '6_shared/lib/classNames/classNames'
-import { Card } from '6_shared/ui/Card/Card'
-import { Skeleton } from '6_shared/ui/Skeleton/Skeleton'
+import { classNames } from '@/6_shared/lib/classNames/classNames'
+import { Card } from '@/6_shared/ui/Card/Card'
+import { Skeleton } from '@/6_shared/ui/Skeleton/Skeleton'
 import { ArticleView } from '../../model/types/article'
 import styles from './ArticleListItem.module.scss'
 

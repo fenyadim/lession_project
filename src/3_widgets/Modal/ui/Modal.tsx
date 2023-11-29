@@ -1,8 +1,8 @@
 import { type ReactNode } from 'react'
-import { classNames, type ModsType } from '6_shared/lib/classNames/classNames'
-import { useModal } from '6_shared/lib/hooks/useModal/useModal'
-import { Overlay } from '6_shared/ui/Overlay/Overlay'
-import { Portal } from '6_shared/ui/Portal/Portal'
+import { classNames, type ModsType } from '@/6_shared/lib/classNames/classNames'
+import { useModal } from '@/6_shared/lib/hooks/useModal/useModal'
+import { Overlay } from '@/6_shared/ui/Overlay/Overlay'
+import { Portal } from '@/6_shared/ui/Portal/Portal'
 import styles from './Modal.module.scss'
 
 export interface ModalProps {

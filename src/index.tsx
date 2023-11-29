@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
-import '1_app/styles/index.scss'
+import '@/1_app/styles/index.scss'
 import { BrowserRouter } from 'react-router-dom'
-import App from '1_app/App'
-import { ErrorBoundary } from '1_app/provides/ErrorBoundary'
-import { StoreProvider } from '1_app/provides/StoreProvider'
-import { ThemeProvider } from '1_app/provides/ThemeProvider'
-import '6_shared/config/i18n/i18n'
+import App from '@/1_app/App'
+import { ErrorBoundary } from '@/1_app/provides/ErrorBoundary'
+import { StoreProvider } from '@/1_app/provides/StoreProvider'
+import { ThemeProvider } from '@/1_app/provides/ThemeProvider'
+import '@/6_shared/config/i18n/i18n'
 
 const container = document.getElementById('root')
 

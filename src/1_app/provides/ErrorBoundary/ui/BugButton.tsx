@@ -1,5 +1,5 @@
 import { type FC, useEffect, useState } from 'react'
-import { Button } from '6_shared/ui/Button/Button'
+import { Button } from '@/6_shared/ui/Button/Button'
 
 // Компонент для тестирования
 export const BugButton: FC = () => {

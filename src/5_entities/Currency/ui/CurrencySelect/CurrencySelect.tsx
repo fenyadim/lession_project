@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { type Profile } from '4_features/EditableProfileCard'
-import { ListBox } from '6_shared/ui/Popups/ui/ListBox/ListBox'
+import { type Profile } from '@/4_features/EditableProfileCard'
+import { ListBox } from '@/6_shared/ui/Popups/ui/ListBox/ListBox'
 import { Currency } from '../../model/types/currency'
 
 interface CurrencySelectProps {

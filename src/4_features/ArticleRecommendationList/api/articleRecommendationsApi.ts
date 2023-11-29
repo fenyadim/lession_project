@@ -1,4 +1,4 @@
-import { rtkApi } from '6_shared/api/rtkApi'
+import { rtkApi } from '@/6_shared/api/rtkApi'
 
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({

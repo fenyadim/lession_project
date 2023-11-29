@@ -1,5 +1,4 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
-import { type StateSchema } from '1_app/provides/StoreProvider'
+import { type StateSchema } from '@/1_app/provides/StoreProvider'
 import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails'
 
 describe('articleDetails.test', () => {
@@ -8,10 +7,8 @@ describe('articleDetails.test', () => {
             id: '1',
             title: 'subtitle'
         }
-        const state: DeepPartial<StateSchema> = {
+        const state = {
             articleDetails: {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 data
             }
         }
@@ -19,11 +16,11 @@ describe('articleDetails.test', () => {
     })
 
     test('should work with empty state', () => {
-        const state: DeepPartial<StateSchema> = {}
+        const state = {}
         expect(getArticleDetailsData(state as StateSchema)).toEqual(undefined)
     })
     test('should return isLoading', () => {
-        const state: DeepPartial<StateSchema> = {
+        const state = {
             articleDetails: {
                 isLoading: true
             }
@@ -32,13 +29,13 @@ describe('articleDetails.test', () => {
     })
 
     test('should work with empty Loading', () => {
-        const state: DeepPartial<StateSchema> = {}
+        const state = {}
         expect(getArticleDetailsIsLoading(state as StateSchema))
             .toEqual(undefined)
     })
 
     test('should return Error', () => {
-        const state: DeepPartial<StateSchema> = {
+        const state = {
             articleDetails: {
                 error: 'Error'
             }
@@ -47,7 +44,7 @@ describe('articleDetails.test', () => {
     })
 
     test('should work with empty Error', () => {
-        const state: DeepPartial<StateSchema> = {}
+        const state = {}
         expect(getArticleDetailsError(state as StateSchema)).toEqual(undefined)
     })
 })

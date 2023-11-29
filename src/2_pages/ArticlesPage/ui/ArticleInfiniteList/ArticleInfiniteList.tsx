@@ -1,9 +1,9 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { Page } from '3_widgets/Page/Page'
-import { ArticleList } from '5_entities/Article'
-import { Text } from '6_shared/ui/Text/Text'
+import { Page } from '@/3_widgets/Page/Page'
+import { ArticleList } from '@/5_entities/Article'
+import { Text } from '@/6_shared/ui/Text/Text'
 import { getArticlePageError, getArticlePageIsLoading, getArticlePageView } from '../../model/selectors/articlesPageSelectors'
 import { getArticles } from '../../model/slices/articlesPageSlice'
 

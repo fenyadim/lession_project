@@ -1,4 +1,4 @@
-import { type StateSchema } from '1_app/provides/StoreProvider'
+import { type StateSchema } from '@/1_app/provides/StoreProvider'
 import { getCounterValue } from './getCounterValue'
 
 describe('getCounterValue.test', () => {
