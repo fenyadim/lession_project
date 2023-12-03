@@ -7,8 +7,8 @@ import { ThemeDecorator } from '@/6_shared/config/storybook/ThemeDecorator'
 
 const preview: Preview = {
     decorators: [
-        StyleDecorator,
         ThemeDecorator(Theme.LIGHT),
+        StyleDecorator,
         RouterDecorator,
         SuspenseDecorator
     ],

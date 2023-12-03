@@ -8,7 +8,7 @@ import styles from './Modal.module.scss'
 export interface ModalProps {
     className?: string
     isOpen?: boolean
-    onClose: () => void
+    onClose?: () => void
     lazy?: boolean
     children?: ReactNode
 }
@@ -32,8 +32,11 @@ export const Modal = (props: ModalProps) => {
 
     return (
         <Portal>
-            <div className={classNames(styles.Modal, mods,
-                [className])}
+            <div className={classNames(
+                styles.Modal,
+                mods,
+                [className]
+            )}
             >
                 <Overlay onClick={close}/>
                 <div className={styles.content}>

@@ -1,6 +1,7 @@
 .Button {
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
     color: var(--inverted-secondary-color);
     padding: 6px 15px;
@@ -83,4 +84,8 @@
 
 .disabled {
     opacity: 0.5;
+}
+
+.fullWidth {
+    width: 100%;
 }

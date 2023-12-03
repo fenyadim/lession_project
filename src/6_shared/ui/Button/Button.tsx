@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize
     disabled?: boolean
     children?: ReactNode
+    fullWidth?: boolean
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -24,22 +25,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             square,
             size = 'm',
             disabled,
+            fullWidth,
             ...otherProps
         } = props
 
         const mods: ModsType = {
             [styles.square]: square,
-            [styles.disabled]: disabled
+            [styles.disabled]: disabled,
+            [styles.fullWidth]: fullWidth
         }
 
         return (
             <button
-                className={ classNames(styles.Button, mods,
-                    [className, styles[theme], styles[size]]) }
-                disabled={ disabled }
-                { ...otherProps }
+                className={classNames(styles.Button, mods,
+                    [className, styles[theme], styles[size]])}
+                disabled={disabled}
+                {...otherProps}
             >
-                { children }
+                {children}
             </button>
         )
     })
