@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Page } from '@/3_widgets/Page/Page'
+import { ArticleRating } from '@/4_features/ArticleRating'
 import { ArticleRecommendationList } from '@/4_features/ArticleRecommendationList'
 import { ArticleDetails } from '@/5_entities/Article'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
@@ -23,16 +24,19 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
 
     const { id } = useParams<{ id: string }>()
 
+    if (!id) return null
+
     return (
-        <DynamicModuleLoader reducers={ reducers } removeAfterUnmount>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <Page
-                className={ classNames('', {}, [className]) }
+                className={classNames('', {}, [className])}
             >
                 <VStack gap="16" max>
                     <ArticleDetailPageHeader/>
-                    <ArticleDetails id={ id }/>
+                    <ArticleDetails id={id}/>
+                    <ArticleRating articleId={id}/>
                     <ArticleRecommendationList/>
-                    <ArticleDetailComments id={ id }/>
+                    <ArticleDetailComments id={id}/>
                 </VStack>
             </Page>
         </DynamicModuleLoader>
