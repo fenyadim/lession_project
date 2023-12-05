@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import ArticleRating from './ArticleRating'
+import ProfileRating from './ProfileRating'
 
-const meta: Meta<typeof ArticleRating> = {
+const meta: Meta<typeof ProfileRating> = {
     title: '4_features/ProfileRating',
-    component: ArticleRating
+    component: ProfileRating
 }
 
 export default meta
 
-type Story = StoryObj<typeof ArticleRating>
+type Story = StoryObj<typeof ProfileRating>
 
 export const Normal: Story = {
     args: {}

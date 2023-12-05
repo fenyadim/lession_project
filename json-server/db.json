@@ -747,11 +747,11 @@
       "profileId": "1"
     },
     {
-      "id": "2",
-      "rate": 2,
-      "feedback": "Хорошая статья",
       "userId": "1",
-      "profileId": "2"
+      "rate": 4,
+      "profileId": "2",
+      "feedback": "",
+      "id": "xAnfEG8"
     }
   ]
 }
