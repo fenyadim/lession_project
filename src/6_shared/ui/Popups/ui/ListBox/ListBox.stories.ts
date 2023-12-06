@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from '@/1_app/provides/ThemeProvider'
 import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator'
+import { Theme } from '../../../../const/theme'
 import { ListBox } from './ListBox'
 
 const meta: Meta<typeof ListBox> = {

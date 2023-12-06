@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
-// eslint-disable-next-line @conarti/feature-sliced/layers-slices
-import { Theme } from '@/1_app/provides/ThemeProvider'
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator'
+import { Theme } from '../../const/theme'
 import { Loader } from './Loader'
 
 const meta: Meta<typeof Loader> = {

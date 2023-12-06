@@ -47,7 +47,7 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'warn',
         'react/no-deprecated': 'off',
         '@typescript-eslint/naming-convention': 'warn',
-        '@typescript-eslint/explicit-function-return-type': 'warn',
+        '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         'n/no-callback-literal': 'off',
         '@typescript-eslint/no-var-requires': 'off',

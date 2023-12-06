@@ -1,7 +1,7 @@
 import { memo, type ReactNode, useCallback, useEffect } from 'react'
-import { useTheme } from '@/1_app/provides/ThemeProvider'
 import { classNames } from '../../lib/classNames/classNames'
 import { AnimationProvider, useAnimationLibs } from '../../lib/components/AnimationProvider'
+import { useTheme } from '../../lib/hooks/useTheme/useTheme'
 import { Overlay } from '../Overlay/Overlay'
 import { Portal } from '../Portal/Portal'
 import styles from './Drawer.module.scss'
