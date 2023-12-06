@@ -1,7 +1,7 @@
 import { type HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import IconEye from '@/6_shared/assets/icons/eye.svg'
-import { RoutePath } from '@/6_shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/6_shared/const/router'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { AppLink } from '@/6_shared/ui/AppLink/AppLink'
 import { Avatar } from '@/6_shared/ui/Avatar/Avatar'
@@ -26,17 +26,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation()
 
     const types = <Text
-        text={ article.type.join(', ') }
-        className={ styles.types }
+        text={article.type.join(', ')}
+        className={styles.types}
     />
 
     const views = (
         <>
             <Text
-                text={ String(article.views) }
-                className={ styles.views }
+                text={String(article.views)}
+                className={styles.views}
             />
-            <Icon Svg={ IconEye }/>
+            <Icon Svg={IconEye}/>
         </>
     )
 
@@ -45,42 +45,42 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             block => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
         return (
-            <div className={ classNames(styles.ArticleListItem, {},
-                [className, styles[view]]) }
+            <div className={classNames(styles.ArticleListItem, {},
+                [className, styles[view]])}
             >
                 <Card>
-                    <div className={ styles.header }>
-                        { article.user.avatar &&
-                            <Avatar size={ 30 } src={ article.user.avatar }/> }
+                    <div className={styles.header}>
+                        {article.user.avatar &&
+                            <Avatar size={30} src={article.user.avatar}/>}
                         <Text
-                            text={ article.user.username }
-                            className={ styles.username }
+                            text={article.user.username}
+                            className={styles.username}
                         />
                         <Text
-                            text={ article.createdAt }
-                            className={ styles.date }
+                            text={article.createdAt}
+                            className={styles.date}
                         />
                     </div>
-                    <Text title={ article.title } className={ styles.title }/>
-                    { types }
+                    <Text title={article.title} className={styles.title}/>
+                    {types}
                     <img
-                        src={ article.img }
-                        alt={ article.title }
-                        className={ styles.image }
+                        src={article.img}
+                        alt={article.title}
+                        className={styles.image}
                     />
-                    { textBlock && (
+                    {textBlock && (
                         <ArticleTextBlockComponent
-                            className={ styles.textBlock }
-                            block={ textBlock }
+                            className={styles.textBlock}
+                            block={textBlock}
                         />
-                    ) }
-                    <div className={ styles.footer }>
-                        <AppLink to={ RoutePath.article_detail + article.id }>
+                    )}
+                    <div className={styles.footer}>
+                        <AppLink to={RoutePath.article_detail + article.id}>
                             <Button>
-                                { t('Читать далее...') }
+                                {t('Читать далее...')}
                             </Button>
                         </AppLink>
-                        { views }
+                        {views}
                     </div>
                 </Card>
             </div>
@@ -89,25 +89,25 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            target={ target }
-            to={ RoutePath.article_detail + article.id }
-            className={ classNames(styles.ArticleListItem, {},
-                [className, styles[view]]) }
+            target={target}
+            to={RoutePath.article_detail + article.id}
+            className={classNames(styles.ArticleListItem, {},
+                [className, styles[view]])}
         >
             <Card>
-                <div className={ styles.imageWrapper }>
+                <div className={styles.imageWrapper}>
                     <img
-                        src={ article.img }
-                        alt={ article.title }
-                        className={ styles.img }
+                        src={article.img}
+                        alt={article.title}
+                        className={styles.img}
                     />
-                    <Text text={ article.createdAt } className={ styles.date }/>
+                    <Text text={article.createdAt} className={styles.date}/>
                 </div>
-                <div className={ styles.infoWrapper }>
-                    { types }
-                    { views }
+                <div className={styles.infoWrapper}>
+                    {types}
+                    {views}
                 </div>
-                <Text text={ article.title } className={ styles.title }/>
+                <Text text={article.title} className={styles.title}/>
             </Card>
         </AppLink>
     )

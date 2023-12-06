@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { getArticleDetailsData } from '@/5_entities/Article'
-import { RoutePath } from '@/6_shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/6_shared/const/router'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { Button } from '@/6_shared/ui/Button/Button'
 import { HStack } from '@/6_shared/ui/Stack'
@@ -34,19 +34,19 @@ export const ArticleDetailPageHeader = memo(
             <HStack
                 max
                 justify="between"
-                className={ classNames('', {},
-                    [className]) }
+                className={classNames('', {},
+                    [className])}
             >
-                <Button onClick={ onBackToList }>
-                    { t('Назад к списку') }
+                <Button onClick={onBackToList}>
+                    {t('Назад к списку')}
                 </Button>
-                { canEdit && (
+                {canEdit && (
                     <Button
-                        onClick={ onEdit }
+                        onClick={onEdit}
                     >
-                        { t('Редактировать') }
+                        {t('Редактировать')}
                     </Button>
-                ) }
+                )}
             </HStack>
         )
     })

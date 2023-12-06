@@ -4,7 +4,7 @@ import AboutIcon from '@/6_shared/assets/icons/about.svg'
 import ArticlesIcon from '@/6_shared/assets/icons/article.svg'
 import MainIcon from '@/6_shared/assets/icons/main.svg'
 import ProfileIcon from '@/6_shared/assets/icons/profile.svg'
-import { RoutePath } from '@/6_shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/6_shared/const/router'
 import { type SidebarItemType } from '../types/sidebar'
 
 export const getSidebarItems = createSelector(
