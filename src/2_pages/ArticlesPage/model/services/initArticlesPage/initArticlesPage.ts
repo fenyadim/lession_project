@@ -7,17 +7,17 @@ import { fetchArticleList } from '../../services/fetchArticleList/fetchArticleLi
 import { articlePageAction } from '../../slices/articlesPageSlice'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export const initArticlesPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
+export const initArticlesPage = createAsyncThunk<void, URLSearchParams | undefined, ThunkConfig<string>>(
     'articlesPage/initArticlesPage',
     async (searchParams, thunkAPI) => {
         const { dispatch, getState } = thunkAPI
         const inited = getArticlePageInited(getState())
 
         if (!inited) {
-            const orderFromUrl = searchParams.get('order') as SortOrder
-            const sortFromUrl = searchParams.get('sort') as ArticleSortField
-            const searchFromUrl = searchParams.get('search')
-            const typeFromUrl = searchParams.get('type') as ArticleType
+            const orderFromUrl = searchParams?.get('order') as SortOrder
+            const sortFromUrl = searchParams?.get('sort') as ArticleSortField
+            const searchFromUrl = searchParams?.get('search')
+            const typeFromUrl = searchParams?.get('type') as ArticleType
 
             if (orderFromUrl) {
                 void dispatch(articlePageAction.setOrder(orderFromUrl))

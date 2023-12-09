@@ -26,6 +26,8 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     const dispatch = useAppDispatch()
     const [searchParams] = useSearchParams()
 
+    console.log(searchParams.entries())
+
     const onLoadNextPart = useCallback(() => {
         void dispatch(fetchNextArticlePage())
     }, [dispatch])
@@ -35,11 +37,11 @@ const ArticlesPage = memo((props: ArticlesPageProps) => {
     })
 
     return (
-        <DynamicModuleLoader reducers={ reducers } removeAfterUnmount={ false }>
-            <Page onScrollEnd={ onLoadNextPart }
-                className={ classNames(styles.ArticlePage, {}, [className]) }>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            <Page onScrollEnd={onLoadNextPart}
+                className={classNames(styles.ArticlePage, {}, [className])}>
                 <ArticlePageFilters/>
-                <ArticleInfiniteList className={ styles.list }/>
+                <ArticleInfiniteList className={styles.list}/>
             </Page>
         </DynamicModuleLoader>
     )
