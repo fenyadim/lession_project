@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { ArticleType } from '@/5_entities/Article'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { type TabItem, Tabs } from '@/6_shared/ui/Tabs/Tabs'
-import { ArticleType } from '../../model/types/article'
 
 interface ArticleTypeTabsProps {
     className?: string
@@ -36,10 +36,10 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
 
     return (
         <Tabs
-            className={ classNames('', {}, [className]) }
-            tabs={ typeTabs }
-            value={ value }
-            onTabClick={ onChangeType }
+            className={classNames('', {}, [className])}
+            tabs={typeTabs}
+            value={value}
+            onTabClick={onChangeType}
         />
     )
 })

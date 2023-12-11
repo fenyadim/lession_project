@@ -1,14 +1,23 @@
 import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { type ArticleSortField, ArticleSortSelector, type ArticleType, ArticleTypeTabs, type ArticleView, ArticleViewSelector } from '@/5_entities/Article'
+import { ArticleSortSelector } from '@/4_features/ArticleSortSelector'
+import { ArticleTypeTabs } from '@/4_features/ArticleTypeTabs'
+import { ArticleViewSelector } from '@/4_features/ArticleViewSelector'
+import { type ArticleSortField, type ArticleType, type ArticleView } from '@/5_entities/Article'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/6_shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/6_shared/lib/hooks/useDebounce/useDebounce'
 import { type SortOrder } from '@/6_shared/types'
 import { Card } from '@/6_shared/ui/Card/Card'
 import { Input } from '@/6_shared/ui/Input/Input'
-import { getArticlePageOrder, getArticlePageSearch, getArticlePageSort, getArticlePageType, getArticlePageView } from '../../model/selectors/articlesPageSelectors'
+import {
+    getArticlePageOrder,
+    getArticlePageSearch,
+    getArticlePageSort,
+    getArticlePageType,
+    getArticlePageView
+} from '../../model/selectors/articlesPageSelectors'
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList'
 import { articlePageAction } from '../../model/slices/articlesPageSlice'
 import styles from './ArticlePageFilters.module.scss'
@@ -63,31 +72,31 @@ export const ArticlePageFilters = memo((props: ArticlePageFiltersProps) => {
     }, [debounceFetchData, dispatch])
 
     return (
-        <div className={ classNames(styles.ArticlePageFilters, {},
-            [className]) }>
-            <div className={ styles.sortWrapper }>
+        <div className={classNames(styles.ArticlePageFilters, {},
+            [className])}>
+            <div className={styles.sortWrapper}>
                 <ArticleSortSelector
-                    sort={ sort }
-                    order={ order }
-                    onChangeSort={ onChangeSort }
-                    onChangeOrder={ onChangeOrder }
+                    sort={sort}
+                    order={order}
+                    onChangeSort={onChangeSort}
+                    onChangeOrder={onChangeOrder}
                 />
                 <ArticleViewSelector
-                    view={ view }
-                    onViewClick={ onChangeView }
+                    view={view}
+                    onViewClick={onChangeView}
                 />
             </div>
-            <Card className={ styles.search }>
+            <Card className={styles.search}>
                 <Input
-                    value={ search }
-                    onChange={ onChangeSearch }
-                    placeholder={ t('Поиск') }
+                    value={search}
+                    onChange={onChangeSearch}
+                    placeholder={t('Поиск')}
                 />
             </Card>
             <ArticleTypeTabs
-                className={ styles.tabs }
-                value={ type }
-                onChangeType={ onChangeType }
+                className={styles.tabs}
+                value={type}
+                onChangeType={onChangeType}
             />
         </div>
     )
