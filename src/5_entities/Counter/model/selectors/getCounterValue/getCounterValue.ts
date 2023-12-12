@@ -1,8 +1,3 @@
-import { createSelector } from 'reselect'
-import { type CounterSchema } from '../../types/counterSchema'
-import { getCounter } from '../getCounter/getCounter'
+import { buildSelector } from '@/6_shared/lib/store/buildSelector'
 
-export const getCounterValue = createSelector(
-    getCounter,
-    (counter: CounterSchema) => counter.value
-)
+export const [useCounterValue, getCounterValue] = buildSelector((state) => state.counter.value)
