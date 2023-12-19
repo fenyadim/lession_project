@@ -1,7 +1,6 @@
 import { memo, useCallback, useState } from 'react'
 import { BrowserView, MobileView } from 'react-device-detect'
 import { useTranslation } from 'react-i18next'
-import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { Button } from '@/6_shared/ui/Button/Button'
 import { Card } from '@/6_shared/ui/Card/Card'
 import { Drawer } from '@/6_shared/ui/Drawer/Drawer'
@@ -10,7 +9,6 @@ import { Modal } from '@/6_shared/ui/Modal/Modal'
 import { HStack, VStack } from '@/6_shared/ui/Stack'
 import { StarRating } from '@/6_shared/ui/StarRating/StarRating'
 import { Text } from '@/6_shared/ui/Text/Text'
-import styles from './RatingCard.module.scss'
 
 interface RatingCardProps {
     className?: string
@@ -63,7 +61,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
         </>
     )
     return (
-        <Card className={classNames(styles.RatingCard, {}, [className])} max>
+        <Card className={className} max>
             <VStack align='center' gap='8'>
                 <Text title={starsCount ? t('Спасибо за оценку!') : title}/>
                 <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStart}/>

@@ -2,43 +2,20 @@ import { memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { ProfileCard } from '@/5_entities/Profile'
-import { classNames } from '@/6_shared/lib/classNames/classNames'
-import {
-    DynamicModuleLoader,
-    type ReducersList
-} from '@/6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import {
-    useAppDispatch
-} from '@/6_shared/lib/hooks/useAppDispatch/useAppDispatch'
-import {
-    useInitialEffect
-} from '@/6_shared/lib/hooks/useInitialEffect/useInitialEffect'
+import { DynamicModuleLoader, type ReducersList } from '@/6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { useAppDispatch } from '@/6_shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { useInitialEffect } from '@/6_shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { VStack } from '@/6_shared/ui/Stack'
 import { Text } from '@/6_shared/ui/Text/Text'
-import {
-    getProfileError
-} from '../../model/selectors/getProfileError/getProfileError'
-import {
-    getProfileForm
-} from '../../model/selectors/getProfileForm/getProfileForm'
-import {
-    getProfileIsLoading
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
-import {
-    getProfileReadonly
-} from '../../model/selectors/getProfileReadonly/getProfileReadonly'
-import {
-    getProfileValidateErrors
-} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-import {
-    fetchProfileData
-} from '../../model/service/fetchProfileData/fetchProfileData'
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError'
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm'
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
+import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { type Profile, ValidateProfileError } from '../../model/types/profile'
-import {
-    EditableProfileCardHeader
-} from '../EditableProfileCardHeader/EditableProfileCardHeader'
-import styles from './EditableProfileCard.module.scss'
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 
 interface EditableProfileCardProps {
     className?: string
@@ -83,28 +60,27 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
         }, [dispatch])
 
     return (
-        <DynamicModuleLoader reducers={ reducers }>
+        <DynamicModuleLoader reducers={reducers}>
             <VStack
                 gap="8"
                 max
-                className={ classNames(styles.EditableProfileCard, {},
-                    [className]) }
+                className={className}
             >
                 <EditableProfileCardHeader/>
-                { validateErrors?.length && validateErrors.map((err) => (
+                {validateErrors?.length && validateErrors.map((err) => (
                     <Text
-                        key={ err }
+                        key={err}
                         theme="error"
-                        text={ validateErrorTranslates[err] }
+                        text={validateErrorTranslates[err]}
                         data-testid="EditableProfileCard.Error"
                     />
-                )) }
+                ))}
                 <ProfileCard
-                    data={ formData }
-                    isLoading={ isLoading }
-                    error={ error }
-                    onChangeProfile={ onChangeProfile }
-                    readonly={ readonly }
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                    onChangeProfile={onChangeProfile}
+                    readonly={readonly}
                 />
             </VStack>
         </DynamicModuleLoader>

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { AddCommentForm } from '@/4_features/AddCommentForm'
 import { CommentList } from '@/5_entities/Comment'
-import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/6_shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useInitialEffect } from '@/6_shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { VStack } from '@/6_shared/ui/Stack'
@@ -13,7 +12,6 @@ import { addCommentForArticle } from '../../model/services/addCommentForArticle/
 import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations'
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
-import styles from './ArticleDetailComments.module.scss'
 
 interface ArticleDetailCommentsProps {
     className?: string
@@ -42,16 +40,14 @@ export const ArticleDetailComments = memo(
             <VStack
                 gap="8"
                 max
-                className={ classNames(styles.ArticleDetailComments, {},
-                    [className]) }
+                className={className}
             >
                 <Text
                     size="l"
-                    className={ styles.commentTitle }
-                    title={ t('Комментарии') }
+                    title={t('Комментарии')}
                 />
-                <AddCommentForm onSendComment={ onSendComment }/>
-                <CommentList isLoading={ isLoading } comments={ comments }/>
+                <AddCommentForm onSendComment={onSendComment}/>
+                <CommentList isLoading={isLoading} comments={comments}/>
             </VStack>
         )
     })
