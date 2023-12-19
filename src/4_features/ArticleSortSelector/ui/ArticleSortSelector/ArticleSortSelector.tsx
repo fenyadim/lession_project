@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArticleSortField } from '@/5_entities/Article'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
-import { type SortOrder } from '@/6_shared/types'
+import { type SortOrder } from '@/6_shared/types/sort'
 import { Select, type SelectOptions } from '@/6_shared/ui/Select/Select'
 import styles from './ArticleSortSelector.module.scss'
 

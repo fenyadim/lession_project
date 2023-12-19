@@ -8,7 +8,7 @@ import { type ArticleSortField, type ArticleType, type ArticleView } from '@/5_e
 import { classNames } from '@/6_shared/lib/classNames/classNames'
 import { useAppDispatch } from '@/6_shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { useDebounce } from '@/6_shared/lib/hooks/useDebounce/useDebounce'
-import { type SortOrder } from '@/6_shared/types'
+import { type SortOrder } from '@/6_shared/types/sort'
 import { Card } from '@/6_shared/ui/Card/Card'
 import { Input } from '@/6_shared/ui/Input/Input'
 import {

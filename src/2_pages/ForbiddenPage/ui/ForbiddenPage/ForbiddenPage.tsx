@@ -7,11 +7,11 @@ export const ForbiddenPage = memo(() => {
     const { t } = useTranslation()
 
     return (
-        <Page>
+        <Page data-testid='ForbiddenPage'>
             <Text
                 theme="error"
                 align="center"
-                title={ t('У вас нет прав к этой странице') }
+                title={t('У вас нет прав к этой странице')}
             />
         </Page>
     )

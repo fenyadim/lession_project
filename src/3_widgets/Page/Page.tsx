@@ -8,9 +8,10 @@ import { useAppDispatch } from '@/6_shared/lib/hooks/useAppDispatch/useAppDispat
 import { useInfiniteScroll } from '@/6_shared/lib/hooks/useInfiniteScroll/useInfiniteScroll'
 import { useInitialEffect } from '@/6_shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useThrottle } from '@/6_shared/lib/hooks/useThrottle/useThrottle'
+import type { TestProps } from '@/6_shared/types/tests'
 import styles from './Page.module.scss'
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string
     children: ReactNode
     onScrollEnd?: () => void
@@ -44,14 +45,16 @@ export const Page = (props: PageProps) => {
     }, 700)
 
     return (
-        <main ref={ wrapperRef }
-            className={ classNames(styles.Page, {}, [className]) }
-            onScroll={ onScroll }
+        <main
+            ref={wrapperRef}
+            className={classNames(styles.Page, {}, [className])}
+            onScroll={onScroll}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
-            { children }
-            { onScrollEnd
-                ? <div className={ styles.trigger } ref={ triggerRef }/>
-                : null }
+            {children}
+            {onScrollEnd
+                ? <div className={styles.trigger} ref={triggerRef}/>
+                : null}
         </main>
     )
 }
