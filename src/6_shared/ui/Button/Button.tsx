@@ -1,4 +1,5 @@
-import { type ButtonHTMLAttributes, forwardRef, type ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import { forwardRef } from 'react'
 import { classNames, type ModsType } from '../../lib/classNames/classNames'
 import styles from './Button.module.scss'
 
@@ -6,7 +7,7 @@ type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'back
 
 type ButtonSize = 'm' | 'l' | 'xl'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
     className?: string
     theme?: ButtonTheme
     square?: boolean
@@ -36,6 +37,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         return (
             <button
+                ref={ref}
                 className={classNames(styles.Button, mods,
                     [className, styles[theme], styles[size]])}
                 disabled={disabled}
