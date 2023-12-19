@@ -12,9 +12,9 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => {
         test: isTsx ? /\.(tsx|jsx)$/ : /\.(ts|js)$/,
         exclude: /node_modules/,
         use: {
-            cacheDirectory: true,
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 plugins: [
                     [
                         '@babel/plugin-transform-typescript',
