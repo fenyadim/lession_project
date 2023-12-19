@@ -11,7 +11,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ButtonTheme
     square?: boolean
     size?: ButtonSize
-    disabled?: boolean
     children?: ReactNode
     fullWidth?: boolean
 }
