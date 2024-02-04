@@ -6,7 +6,7 @@ import styles from './StarRating.module.scss'
 
 interface StarRatingProps {
     className?: string
-    onSelect?: (starsCount: number) => void
+    onSelect?(starsCount: number): void
     size?: number
     selectedStars?: number
 }
@@ -60,6 +60,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onMouseLeave={onLeave}
                     onMouseEnter={onHover(starNumber)}
                     onClick={onClick(starNumber)}
+                    data-testid={`StarRating.${starNumber}`}
+                    data-selected={currentStarsCount >= starNumber}
                 />
             ))}
         </div>

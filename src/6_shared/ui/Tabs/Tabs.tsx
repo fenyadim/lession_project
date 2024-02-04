@@ -12,7 +12,7 @@ interface TabsProps<T extends string> {
     className?: string
     tabs: Array<TabItem<T>>
     value: T
-    onTabClick: (tab: T) => void
+    onTabClick(tab: T): void
 }
 
 export const Tabs = <T extends string> (props: TabsProps<T>) => {
@@ -28,6 +28,7 @@ export const Tabs = <T extends string> (props: TabsProps<T>) => {
         <div className={ classNames(styles.Tabs, {}, [className]) }>
             { tabs.map(tab => (
                 <Card
+                    data-testid={`Tab.${tab.value}`}
                     theme={ tab.value === value ? 'primary' : 'outline' }
                     className={ styles.tab }
                     key={ tab.value }

@@ -19,7 +19,7 @@ interface ListBoxProps {
     className?: string
     value?: string
     defaultValue?: string
-    onChange: <T extends string>(value: T) => void
+    onChange<T extends string>(value: T): void
     label?: string
     readonly?: boolean
     direction?: DropdownDirection
@@ -47,9 +47,10 @@ export const ListBox = (props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
             >
-                <HListbox.Button as={Button} disabled={readonly}>
-                    {value ?? defaultValue}
+                <HListbox.Button as={Fragment}>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListbox.Button>
+
                 <HListbox.Options
                     className={
                         classNames(

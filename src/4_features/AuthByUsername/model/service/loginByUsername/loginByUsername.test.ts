@@ -5,7 +5,7 @@ import { loginByUsername } from './loginByUsername'
 jest.mock('axios')
 
 describe('loginByUsername.test', () => {
-    test('success login', async () => {
+    test('success common', async () => {
         const userValue = { username: '123', id: '1' }
         const thunk = new TestAsyncThunk(
             loginByUsername)
@@ -22,7 +22,7 @@ describe('loginByUsername.test', () => {
         expect(result.payload).toEqual(userValue)
     })
 
-    test('error login', async () => {
+    test('error common', async () => {
         const thunk = new TestAsyncThunk(loginByUsername)
         thunk.api.post.mockReturnValue(
             Promise.resolve({ status: 403 }))

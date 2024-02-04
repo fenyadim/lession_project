@@ -27,10 +27,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     const { t } = useTranslation()
 
-    const types = <Text
-        text={article.type.join(', ')}
-        className={styles.types}
-    />
+    const types = (
+        <Text
+            data-testid="ArticleListItem.Type"
+            text={article.type.join(', ')}
+            className={styles.types}
+        />
+    )
 
     const views = (
         <>
@@ -47,8 +50,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             block => block.type === ArticleBlockType.TEXT
         ) as ArticleTextBlock
         return (
-            <div className={classNames(styles.ArticleListItem, {},
-                [className, styles[view]])}
+            <div
+                className={classNames(styles.ArticleListItem, {},
+                    [className, styles[view]])}
+                data-testid='ArticleListItem'
             >
                 <Card>
                     <div className={styles.header}>
@@ -63,7 +68,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                             className={styles.date}
                         />
                     </div>
-                    <Text title={article.title} className={styles.title}/>
+                    <Text data-testid="ArticleListItem.Title" title={article.title} className={styles.title}/>
                     {types}
                     <AppImage
                         fallback={<Skeleton width={'100%'} height={250}/>}
@@ -92,6 +97,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
+            data-testid='ArticleListItem'
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(styles.ArticleListItem, {},
@@ -111,7 +117,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {types}
                     {views}
                 </div>
-                <Text text={article.title} className={styles.title}/>
+                <Text data-testid="ArticleListItem.Title" text={article.title} className={styles.title}/>
             </Card>
         </AppLink>
     )

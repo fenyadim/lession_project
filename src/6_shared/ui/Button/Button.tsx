@@ -3,7 +3,13 @@ import { forwardRef } from 'react'
 import { classNames, type ModsType } from '../../lib/classNames/classNames'
 import styles from './Button.module.scss'
 
-type ButtonTheme = 'clear' | 'clearInverted' | 'outline' | 'outline_red' | 'background' | 'backgroundInverted'
+type ButtonTheme =
+  | 'clear'
+  | 'clearInverted'
+  | 'outline'
+  | 'outline_red'
+  | 'background'
+  | 'backgroundInverted'
 
 type ButtonSize = 'm' | 'l' | 'xl'
 
@@ -24,7 +30,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             theme = 'outline',
             square,
             size = 'm',
-            disabled,
+            disabled = false,
             fullWidth,
             ...otherProps
         } = props
@@ -38,14 +44,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <button
                 ref={ref}
-                className={classNames(styles.Button, mods,
-                    [className, styles[theme], styles[size]])}
+                type="button"
+                className={classNames(styles.Button, mods, [
+                    className,
+                    styles[theme],
+                    styles[size]
+                ])}
                 disabled={disabled}
                 {...otherProps}
             >
                 {children}
             </button>
         )
-    })
+    }
+)
 
 Button.displayName = 'Button'

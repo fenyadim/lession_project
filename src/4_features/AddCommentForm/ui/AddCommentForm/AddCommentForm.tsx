@@ -13,7 +13,7 @@ import styles from './AddCommentForm.module.scss'
 
 export interface AddCommentFormProps {
     className?: string
-    onSendComment: (text: string) => void
+    onSendComment(text: string): void
 }
 
 const reducers: ReducersList = {
@@ -40,6 +40,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
     return (
         <DynamicModuleLoader reducers={ reducers }>
             <HStack
+                data-testid='AddCommentForm'
                 justify="between"
                 max
                 className={ classNames(styles.AddCommentForm, {},
@@ -50,9 +51,11 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     placeholder={ t('Введите текст комментария') }
                     value={ text }
                     onChange={ onCommentTextChange }
+                    data-testid="AddCommentForm.Input"
                 />
                 <Button
                     onClick={ onSendHandler }
+                    data-testid="AddCommentForm.Button"
                 >
                     { t('Отправить') }
                 </Button>
