@@ -17,10 +17,10 @@ root.render(
         <StoreProvider>
             <ErrorBoundary>
                 <ThemeProvider>
-                    <App/>
+                    <App />
                 </ThemeProvider>
             </ErrorBoundary>
         </StoreProvider>
-    </BrowserRouter>
+    </BrowserRouter>,
 )
 export { Theme } from '@/6_shared/const/theme'

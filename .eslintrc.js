@@ -10,6 +10,7 @@ module.exports = {
         'plugin:react/jsx-runtime',
         'plugin:storybook/recommended',
         'plugin:@conarti/feature-sliced/recommended',
+        'prettier',
     ],
     overrides: [
         {
@@ -34,18 +35,13 @@ module.exports = {
         // 'fenyadim-plugin',
     ],
     rules: {
-        '@typescript-eslint/indent': [2, 4, {'ignoredNodes': ['JSXElement']}],
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            {extensions: ['.js', '.jsx', '.tsx']}],
+        'react/jsx-max-props-per-line': ['error', 4],
         'react/react-in-jsx-scope': 'off',
         // 'fenyadim-plugin/path-checker': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/no-floating-promises': 'warn',
-        '@typescript-eslint/no-namespace': [2, {"allowDeclarations": true}],
+        '@typescript-eslint/no-namespace': [2, { allowDeclarations: true }],
         'react/no-deprecated': 'off',
         '@typescript-eslint/method-signature-style': [2, 'method'],
         '@typescript-eslint/naming-convention': 'warn',
@@ -54,9 +50,12 @@ module.exports = {
         'n/no-callback-literal': 'off',
         '@typescript-eslint/no-var-requires': 'off',
         '@conarti/feature-sliced/layers-slices': 'warn',
-        '@typescript-eslint/consistent-type-imports': [1, {
-            'disallowTypeAnnotations': false
-        }],
+        '@typescript-eslint/consistent-type-imports': [
+            1,
+            {
+                disallowTypeAnnotations: false,
+            },
+        ],
         '@typescript-eslint/no-misused-promises': [
             2,
             {
