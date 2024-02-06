@@ -35,7 +35,7 @@ module.exports = {
         // 'fenyadim-plugin',
     ],
     rules: {
-        'react/jsx-max-props-per-line': ['error', 4],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
         'react/react-in-jsx-scope': 'off',
         // 'fenyadim-plugin/path-checker': 'error',
         '@typescript-eslint/prefer-nullish-coalescing': 'off',
