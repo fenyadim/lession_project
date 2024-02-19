@@ -14,8 +14,8 @@ interface RatingCardProps {
     className?: string
     title?: string
     feedbackTitle?: string
-    onCancel?(starsCount: number): void
-    onAccept?(starsCount: number, feedback?: string): void
+    onCancel?: (starsCount: number) => void
+    onAccept?: (starsCount: number, feedback?: string) => void
     rate?: number
 }
 

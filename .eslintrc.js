@@ -43,7 +43,6 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': 'warn',
         '@typescript-eslint/no-namespace': [2, { allowDeclarations: true }],
         'react/no-deprecated': 'off',
-        '@typescript-eslint/method-signature-style': [2, 'method'],
         '@typescript-eslint/naming-convention': 'warn',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',

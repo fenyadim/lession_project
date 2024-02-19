@@ -13,7 +13,7 @@ import styles from './AddCommentForm.module.scss'
 
 export interface AddCommentFormProps {
     className?: string
-    onSendComment(text: string): void
+    onSendComment: (text: string) => void
 }
 
 const reducers: ReducersList = {

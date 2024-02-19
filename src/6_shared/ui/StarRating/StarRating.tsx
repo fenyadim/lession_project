@@ -6,7 +6,7 @@ import styles from './StarRating.module.scss'
 
 interface StarRatingProps {
     className?: string
-    onSelect?(starsCount: number): void
+    onSelect?: (starsCount: number) => void
     size?: number
     selectedStars?: number
 }

@@ -3,9 +3,13 @@ import { useParams } from 'react-router-dom'
 import { Page } from '@/3_widgets/Page/Page'
 import { ArticleRating } from '@/4_features/ArticleRating'
 import { ArticleRecommendationList } from '@/4_features/ArticleRecommendationList'
+import { getFeatureFlags } from '@/6_shared/lib/features'
 import { ArticleDetails } from '@/5_entities/Article'
 import { classNames } from '@/6_shared/lib/classNames/classNames'
-import { DynamicModuleLoader, type ReducersList } from '@/6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import {
+    DynamicModuleLoader,
+    type ReducersList,
+} from '@/6_shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { VStack } from '@/6_shared/ui/Stack'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailComments } from '../../ui/ArticleDetailComments/ArticleDetailComments'
@@ -16,11 +20,13 @@ interface ArticleDetailPageProps {
 }
 
 const reducers: ReducersList = {
-    articleDetailsPage: articleDetailsPageReducer
+    articleDetailsPage: articleDetailsPageReducer,
 }
 
 const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
     const { className } = props
+
+    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled')
 
     const { id } = useParams<{ id: string }>()
 
@@ -28,15 +34,13 @@ const ArticleDetailPage = memo((props: ArticleDetailPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <Page
-                className={classNames('', {}, [className])}
-            >
+            <Page className={classNames('', {}, [className])}>
                 <VStack gap="16" max>
-                    <ArticleDetailPageHeader/>
-                    <ArticleDetails id={id}/>
-                    <ArticleRating articleId={id}/>
-                    <ArticleRecommendationList/>
-                    <ArticleDetailComments id={id}/>
+                    <ArticleDetailPageHeader />
+                    <ArticleDetails id={id} />
+                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    <ArticleRecommendationList />
+                    <ArticleDetailComments id={id} />
                 </VStack>
             </Page>
         </DynamicModuleLoader>
